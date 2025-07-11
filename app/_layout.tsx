@@ -1,5 +1,37 @@
+import { useFonts } from 'expo-font';
 import { Stack } from "expo-router";
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  return <Stack />;
+  const [fontsLoaded] = useFonts({
+    'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
+    'Wanderlust': require('../assets/fonts/WanderlustRegular.ttf'),
+    'Montserrat': require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),
+  });
+
+  useEffect(() => {
+    const hideSplash = async () => {
+      if (fontsLoaded) {
+        // Hide splash screen once fonts are loaded
+        await SplashScreen.hideAsync();
+      }
+    };
+
+    hideSplash();
+  }, [fontsLoaded]);
+
+  // Don't render anything until fonts are loaded
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(landing)" options={{ headerShown: false }}/>
+    </Stack>
+  );
 }
