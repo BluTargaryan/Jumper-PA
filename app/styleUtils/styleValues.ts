@@ -38,6 +38,11 @@ export const typography = {
     display: 48,
     hero: 64
   },
+  positions: {
+    left: { textAlign: 'left' },
+    center: { textAlign: 'center' },
+    right: { textAlign: 'right' },
+  },
   weights: {
     regular: '400',
     medium: '500',
@@ -83,17 +88,17 @@ export const typography = {
     bodyLarge: {
       fontFamily: 'Montserrat',
       fontSize: 16,
-      fontWeight: '400',
+      fontWeight: '600',
     },
     bodyMedium: {
       fontFamily: 'Montserrat',
       fontSize: 14,
-      fontWeight: '400',
+      fontWeight: '600',
     },
     bodySmall: {
       fontFamily: 'Montserrat',
       fontSize: 12,
-      fontWeight: '400',
+      fontWeight: '600',
     },
     button: {
       fontFamily: 'Montserrat',
