@@ -71,44 +71,36 @@ export const typography = {
     
     // Montserrat presets for body text
     headingLarge: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 24,
-      fontWeight: '600',
     },
     headingMedium: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 20,
-      fontWeight: '600',
     },
     headingSmall: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 16,
-      fontWeight: '600',
     },
     bodyLarge: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-Medium',
       fontSize: 16,
-      fontWeight: '600',
     },
     bodyMedium: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-Medium',
       fontSize: 14,
-      fontWeight: '600',
     },
     bodySmall: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-Medium',
       fontSize: 12,
-      fontWeight: '600',
     },
     button: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 16,
-      fontWeight: '600',
     },
     caption: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Montserrat-Medium',
       fontSize: 12,
-      fontWeight: '500',
     },
   },
 } as const;
@@ -168,4 +160,13 @@ export const shadows = {
     shadowRadius: 7.49,
     elevation: 6,
   },
+} as const;
+
+export default {
+  colors,
+  spacing,
+  borderRadius,
+  typography,
+  layout,
+  shadows,
 } as const;

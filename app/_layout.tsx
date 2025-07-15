@@ -10,7 +10,8 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
     'Wanderlust': require('../assets/fonts/WanderlustRegular.ttf'),
-    'Montserrat': require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),
+    'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
+    'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
   });
 
   useEffect(() => {

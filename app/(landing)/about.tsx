@@ -1,7 +1,7 @@
-import { Image, ImageBackground, ScrollView, Text, View } from "react-native";
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Image, ImageBackground, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, typography } from "../styleUtils/styleValues";
-
 
 
 export default function About() {
@@ -39,24 +39,28 @@ export default function About() {
             flex: 1,
             alignItems: 'center',
         }}>
-          <Image
+          
+            <ScrollView
+            style={{
+              flex: 1
+            }}
+            contentContainerStyle={{
+              gap: 40,
+              flexDirection: 'column',
+              alignItems: 'center',
+              
+            }}
+            >
+              <Image
             source={require("../../assets/images/jumper-icon.png")}
             style={{
               width: 40,
               height: 40,
             }}
           />
-            <View
-            style={{
-              flex: 1,
-              flexDirection: 'column',
-              alignItems: 'center',
-              paddingVertical: 70,
-            }}
-            >
 <ScrollView horizontal
 style={{
-  flex: 1,
+  height: 590
 }}
 contentContainerStyle={{
   paddingHorizontal: 44,
@@ -96,19 +100,60 @@ contentContainerStyle={{
                         style={[
                           typography.presets.displaySmall,
                           typography.positions.center,
+                          {
+                            color:item.color==="primary"?colors.background:colors.text,
+                          }
                         ]}
                         >{item.title}</Text>
                         <Text
                         style={[
                           typography.presets.bodyLarge,
                           typography.positions.center,
+                          {
+                            color:item.color==="primary"?colors.background:colors.text,
+                          }
                         ]}
                         >{item.description}</Text>
                         </View>
                     </View>
                 ))}
             </ScrollView>
+            <View style={{
+              flexDirection: 'row',
+              gap: 8,
+            }}>
+              {items.map((item, index) => (
+                <View 
+                  key={index} 
+                  style={{
+                    width: 14,
+                    height: 14,
+                    borderRadius: 7,
+                    backgroundColor: colors.background,
+                  }}
+                />
+              ))}
             </View>
+
+            <TouchableOpacity
+              style={{
+                width: 325,
+                height: 52,
+                backgroundColor: colors.background,
+                borderRadius: 8,
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'row',
+                gap: 8,
+              }}
+            >
+              <Text style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
+             <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
+              
+            </TouchableOpacity>
+            </ScrollView>
+
+           
         </SafeAreaView>
       
     </ImageBackground>
