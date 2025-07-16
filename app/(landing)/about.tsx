@@ -1,10 +1,62 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { Image, ImageBackground, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { router } from 'expo-router';
+import { useEffect } from 'react';
+import { Image, ImageBackground, ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withTiming
+} from 'react-native-reanimated';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, typography } from "../styleUtils/styleValues";
 
-
 export default function About() {
+  const { width } = useWindowDimensions();
+  const scrollX = useSharedValue(0);
+  const jumperY = useSharedValue(-100); // Start above screen
+  const bgScale = useSharedValue(1.5);
+  const bgOpacity = useSharedValue(0);
+  const buttonY = useSharedValue(100); // Start below screen
+  const listX = useSharedValue(width); // Start from screen width (right side)
+
+  useEffect(() => {
+    // Animate the jumper dropping in
+    jumperY.value = withDelay(200, withTiming(0, { duration: 300 }));
+    // Animate background
+    bgScale.value = withTiming(1, { duration: 200 });
+    bgOpacity.value = withTiming(1, { duration: 200 });
+    // Animate button sliding up
+    buttonY.value = withDelay(400, withTiming(0, { duration: 300 }));
+    // Animate list sliding in
+    listX.value = withDelay(600, withTiming(0, { duration: 400 }));
+  }, []);
+
+  const jumperStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: jumperY.value }]
+  }));
+
+  const bgStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: bgScale.value }],
+    opacity: bgOpacity.value,
+  }));
+
+  const buttonStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: buttonY.value }]
+  }));
+
+  const listStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: listX.value }]
+  }));
+
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: (event) => {
+      scrollX.value = event.contentOffset.x;
+    },
+  });
 
   const items = [
     {
@@ -27,14 +79,15 @@ export default function About() {
     }
   ]
   return (
-    <ImageBackground
-      source={require("../../assets/images/landing-duo-image.png")}
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
-      resizeMode="cover"
-    >
+    <Animated.View style={[{ flex: 1 }, bgStyle]}>
+      <ImageBackground
+        source={require("../../assets/images/landing-duo-image.png")}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+        resizeMode="cover"
+      >
         <SafeAreaView style={{
             flex: 1,
             alignItems: 'center',
@@ -42,7 +95,7 @@ export default function About() {
           
             <ScrollView
             style={{
-              flex: 1
+              flex: 1,
             }}
             contentContainerStyle={{
               gap: 40,
@@ -51,22 +104,26 @@ export default function About() {
               
             }}
             >
-              <Image
-            source={require("../../assets/images/jumper-icon.png")}
-            style={{
-              width: 40,
-              height: 40,
-            }}
-          />
-<ScrollView horizontal
-style={{
-  height: 590
-}}
-contentContainerStyle={{
-  paddingHorizontal: 44,
-  gap: 20,
-}}
->
+              <Animated.Image
+                source={require("../../assets/images/jumper-icon.png")}
+                style={[{
+                  width: 40,
+                  height: 40,
+                }, jumperStyle]}
+              />
+              <Animated.ScrollView 
+                horizontal
+                style={[{
+                  height: 590
+                }, listStyle]}
+                contentContainerStyle={{
+                  paddingHorizontal: 44,
+                  gap: 20,
+                }}
+                onScroll={scrollHandler}
+                scrollEventThrottle={16}
+                showsHorizontalScrollIndicator={false}
+              >
                 {items.map((item, index) => (
                     <View key={index} style={{
                       flex: 1,
@@ -89,73 +146,89 @@ contentContainerStyle={{
                           height: '100%',
                         }}
                       />
-                        <View style={{
-                          flex: 1,
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: 10,
-                        }}>
+                      <View style={{
+                        flex: 1,
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 10,
+                      }}>
                         <Text
-                        style={[
-                          typography.presets.displaySmall,
-                          typography.positions.center,
-                          {
-                            color:item.color==="primary"?colors.background:colors.text,
-                          }
-                        ]}
+                          style={[
+                            typography.presets.displaySmall,
+                            typography.positions.center,
+                            {
+                              color:item.color==="primary"?colors.background:colors.text,
+                            }
+                          ]}
                         >{item.title}</Text>
                         <Text
-                        style={[
-                          typography.presets.bodyLarge,
-                          typography.positions.center,
-                          {
-                            color:item.color==="primary"?colors.background:colors.text,
-                          }
-                        ]}
+                          style={[
+                            typography.presets.bodyLarge,
+                            typography.positions.center,
+                            {
+                              color:item.color==="primary"?colors.background:colors.text,
+                            }
+                          ]}
                         >{item.description}</Text>
-                        </View>
+                      </View>
                     </View>
                 ))}
-            </ScrollView>
-            <View style={{
-              flexDirection: 'row',
-              gap: 8,
-            }}>
-              {items.map((item, index) => (
-                <View 
-                  key={index} 
-                  style={{
-                    width: 14,
-                    height: 14,
-                    borderRadius: 7,
-                    backgroundColor: colors.background,
-                  }}
-                />
-              ))}
-            </View>
-
-            <TouchableOpacity
-              style={{
-                width: 325,
-                height: 52,
-                backgroundColor: colors.background,
-                borderRadius: 8,
-                alignItems: 'center',
-                justifyContent: 'center',
+              </Animated.ScrollView>
+              <View style={{
                 flexDirection: 'row',
                 gap: 8,
-              }}
-            >
-              <Text style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
-             <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-              
-            </TouchableOpacity>
-            </ScrollView>
+              }}>
+                {items.map((item, index) => {
+                  const dotStyle = useAnimatedStyle(() => {
+                    const opacity = interpolate(
+                      scrollX.value,
+                      [(index - 1) * 340, index * 340, (index + 1) * 340],
+                      [0.5, 1, 0.5],
+                      Extrapolate.CLAMP
+                    );
+                    return {
+                      opacity,
+                    };
+                  });
 
-           
+                  return (
+                    <Animated.View 
+                      key={index} 
+                      style={[{
+                        width: 14,
+                        height: 14,
+                        borderRadius: 7,
+                        backgroundColor: colors.background,
+                      },
+                      dotStyle
+                      ]}
+                    />
+                  );
+                })}
+              </View>
+
+              <Animated.View style={buttonStyle}>
+                <TouchableOpacity
+                onPress={() => router.push("/locationPermission")}
+                  style={{
+                    width: 325,
+                    height: 52,
+                    backgroundColor: colors.background,
+                    borderRadius: 8,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    gap: 8,
+                  }}
+                >
+                  <Text style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
+                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
+                </TouchableOpacity>
+              </Animated.View>
+            </ScrollView>
         </SafeAreaView>
-      
-    </ImageBackground>
+      </ImageBackground>
+    </Animated.View>
   );
 }
