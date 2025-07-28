@@ -33,6 +33,7 @@ export default function RootLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(landing)" options={{ headerShown: false }}/>
+      <Stack.Screen name="(main)" options={{ headerShown: false }}/>
     </Stack>
   );
 }

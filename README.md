@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# Jumper-PA 🌍
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A travel exploration app built with Expo, featuring interactive maps and tourist destinations around the world.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Interactive world map with country markers
+- Famous tourist attractions for each country
+- Smooth navigation between landing and map screens
+- Beautiful UI with animations
 
+## Prerequisites
+
+Before you begin, ensure you have:
+- Node.js installed
+- Expo CLI installed (`npm install -g expo-cli`)
+- Google Maps API key for map functionality
+
+## Setup
+
+1. Clone the repository
+   ```bash
+   git clone <your-repo-url>
+   cd Jumper-PA
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Environment Setup
+   - Create a `.env` file in the root directory
+   - Add your Google Maps API key:
+     ```
+     EXPO_GMAP_API_LOCKE=your_google_maps_api_key
+     ```
 
+4. Start the development server
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Project Structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+Jumper-PA/
+├── app/
+│   ├── (landing)/          # Landing page screens
+│   ├── (main)/            # Main app screens
+│   ├── components/        # Reusable components
+│   ├── dataUtils/         # Data and utilities
+│   └── styleUtils/        # Style configurations
+├── assets/
+│   ├── fonts/            # Custom fonts
+│   └── images/           # App images
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Key Components
 
-## Learn more
+- `countryMap.tsx`: Interactive world map with country markers
+- `about.tsx`: Animated landing page with tourist information
+- `countriesData.ts`: Structured data for countries and attractions
 
-To learn more about developing your project with Expo, look at the following resources:
+## Technologies Used
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Expo Router for navigation
+- React Native Maps for map integration
+- React Native Reanimated for animations
+- TypeScript for type safety
+- Custom styling with React Native StyleSheet
 
-## Join the community
+## Development
 
-Join our community of developers creating universal apps.
+To start developing:
+1. Run `npx expo start` to start the development server
+2. Use 'a' for Android or 'i' for iOS simulator
+3. Use 'r' to reload the app
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

@@ -5,6 +5,7 @@ export const colors = {
   accent: '#FFBE27',
   background: '#FFFAF1',
   text: '#0E0E1B',
+  red: '#FF0000',
 } as const;
 
 // Spacing
@@ -67,6 +68,14 @@ export const typography = {
     displaySmall: {
       fontFamily: 'Wanderlust',
       fontSize: 32,
+    },
+    displayXSmall: {
+      fontFamily: 'Wanderlust',
+      fontSize: 24,
+    },
+    displayXXSmall: {
+      fontFamily: 'Wanderlust',
+      fontSize: 16,
     },
     
     // Montserrat presets for body text
