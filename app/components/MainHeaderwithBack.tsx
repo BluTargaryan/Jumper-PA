@@ -1,7 +1,9 @@
-import { Image, Text, View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
 
-export default function MainHeader() {
+export default function MainHeaderwithBack() {
     return (
         <View style={{
             flexDirection: "row",
@@ -12,6 +14,9 @@ export default function MainHeader() {
             gap:24,
             backgroundColor: colors.text,
         }}>
+            <TouchableOpacity onPress={() => router.back()}>
+                <MaterialIcons name="arrow-back" size={24} color={colors.background} />
+            </TouchableOpacity>
 
             <View
             style={{

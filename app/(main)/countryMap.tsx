@@ -1,8 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker, Region } from 'react-native-maps';
+import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
 import MainHeader from "../components/MainHeader";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
@@ -19,6 +20,50 @@ export default function CountryMap() {
     const [region, setRegion] = useState<Region>(INITIAL_REGION);
     const [isMapReady, setIsMapReady] = useState(false);
     const [mapError, setMapError] = useState<string | null>(null);
+
+    const translateY = useSharedValue(50);
+    const opacity = useSharedValue(0);
+
+    const mapContainerY = useSharedValue(50);
+    const mapContainerOpacity = useSharedValue(0);
+
+    const buttonY = useSharedValue(100);
+    const buttonOpacity = useSharedValue(0);
+
+    useEffect(() => {
+        if (mapError) {
+            translateY.value = 50;
+            opacity.value = 0;
+            translateY.value = withDelay(200, withTiming(0));
+            opacity.value = withDelay(200, withTiming(1));
+        }
+    }, [mapError]);
+
+    useEffect(() => {
+        // Initial animation when component mounts
+        mapContainerY.value = withDelay(200, withTiming(0));
+        mapContainerOpacity.value = withDelay(200, withTiming(1));
+        
+        // Button animation
+        buttonY.value = withDelay(500, withTiming(0));
+        buttonOpacity.value = withDelay(500, withTiming(1));
+    }, []);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: translateY.value }],
+        opacity: opacity.value
+    }));
+
+    const mapContainerStyle = useAnimatedStyle(() => ({
+        flex: 1,
+        transform: [{ translateY: mapContainerY.value }],
+        opacity: mapContainerOpacity.value
+    }));
+
+    const buttonStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: buttonY.value }],
+        opacity: buttonOpacity.value
+    }));
 
     const onRegionChange = useCallback((newRegion: Region) => {
         try {
@@ -42,7 +87,16 @@ export default function CountryMap() {
         return (
             <SafeAreaView style={{ flex: 1, marginTop: 40 }}>
                 <MainHeader />
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Animated.View 
+                    style={[
+                        { 
+                            flex: 1, 
+                            justifyContent: 'center', 
+                            alignItems: 'center' 
+                        },
+                        animatedStyle
+                    ]}
+                >
                     <Text style={[typography.presets.bodyLarge, { color: colors.text }]}>{mapError}</Text>
                     <TouchableOpacity
                         onPress={() => router.back()}
@@ -55,7 +109,7 @@ export default function CountryMap() {
                     >
                         <Text style={[typography.presets.button, { color: colors.background }]}>Go Back</Text>
                     </TouchableOpacity>
-                </View>
+                </Animated.View>
             </SafeAreaView>
         );
     }
@@ -73,13 +127,13 @@ export default function CountryMap() {
                         bottom: 0, 
                         justifyContent: 'center', 
                         alignItems: 'center',
-                        backgroundColor: colors.background 
+                        backgroundColor: colors.background
                     }}>
                         <ActivityIndicator size="large" color={colors.text} />
                     </View>
                 )}
                 
-                <View style={{ flex: 1 }}>
+                <Animated.View style={mapContainerStyle}>
                     <MapView
                         style={{
                             width: '100%',
@@ -93,38 +147,45 @@ export default function CountryMap() {
                         loadingBackgroundColor={colors.background}
                     >
                         {TOP_TOURIST_COUNTRIES?.map((country) => (
-                     
-                                <Marker
-                                    key={country.id}
-                                    coordinate={country.coordinate}
-                                    title={country.name}
-                                    pinColor={colors.text}
-                                />
-                            
-                         
+                            <Marker
+                                key={country.id}
+                                coordinate={country.coordinate}
+                                title={country.name}
+                                pinColor={colors.text}
+                            />
                         ))}
                     </MapView>
-                </View>
+                </Animated.View>
 
-                <TouchableOpacity
-                    onPress={() => router.back()}
-                    style={{
-                        position: 'absolute',
-                        bottom: 24,
-                        alignSelf: 'center',
-                        width: 325,
-                        height: 52,
-                        backgroundColor: colors.text,
-                        borderRadius: 8,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                        gap: 8,
-                    }}
+                <Animated.View
+                    style={[
+                        {
+                            position: 'absolute',
+                            bottom: 24,
+                            alignSelf: 'center',
+                            width: 325,
+                            height: 52,
+                            backgroundColor: colors.text,
+                            borderRadius: 8,
+                        },
+                        buttonStyle
+                    ]}
                 >
-                    <Text style={[typography.presets.button, { color: colors.background }]}>Countries</Text>
-                    <MaterialIcons name="public" size={24} color={colors.background} />
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => router.replace("/(main)/countryList")}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
+                            gap: 8,
+                        }}
+                    >
+                        <Text style={[typography.presets.button, { color: colors.background }]}>Countries</Text>
+                        <MaterialIcons name="public" size={24} color={colors.background} />
+                    </TouchableOpacity>
+                </Animated.View>
             </View>
         </SafeAreaView>
     );
