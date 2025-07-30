@@ -3,10 +3,56 @@ import { colors, typography } from "@/app/styleUtils/styleValues";
 import { MaterialIcons } from "@expo/vector-icons";
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { router } from "expo-router";
-import { Animated, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useEffect } from "react";
+import { SafeAreaView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 
 export default function CountryList() {
+    const scale = useSharedValue(0);
+    const scrollViewTranslateY = useSharedValue(30);
+    const scrollViewOpacity = useSharedValue(0);
+    const buttonTranslateY = useSharedValue(30);
+    const buttonOpacity = useSharedValue(0);
+    const searchScale = useSharedValue(0);
+
+    const titleStyle = useAnimatedStyle(() => ({
+        transform: [{ scale: scale.value }]
+    }));
+
+    const scrollViewStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: scrollViewTranslateY.value }],
+        opacity: scrollViewOpacity.value,
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+        marginBottom: 100,
+    }));
+
+    const buttonStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: buttonTranslateY.value }],
+        opacity: buttonOpacity.value,
+        position: 'absolute',
+        bottom: 24,
+        alignSelf: 'center',
+        width: 325,
+        height: 52,
+        backgroundColor: colors.background,
+        borderRadius: 8,
+    }));
+
+    const searchStyle = useAnimatedStyle(() => ({
+        transform: [{ scale: searchScale.value }]
+    }));
+
+    useEffect(() => {
+        scale.value = withDelay(200, withTiming(1, { duration: 200 }));
+        searchScale.value = withDelay(600, withTiming(1, { duration: 200 }));
+        scrollViewTranslateY.value = withDelay(400, withTiming(0, { duration: 200 }));
+        scrollViewOpacity.value = withDelay(400, withTiming(1, { duration: 200 }));
+        buttonTranslateY.value = withDelay(800, withTiming(0, { duration: 200 }));
+        buttonOpacity.value = withDelay(800, withTiming(1, { duration: 200 }));
+    }, []);
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, marginTop: 40, alignItems: 'center', justifyContent: 'space-between'}}>
@@ -22,42 +68,43 @@ export default function CountryList() {
             gap: 24,
           }}
           >
-            <Text
-            style={[typography.presets.displaySmall, {color: colors.background, textAlign: 'center'}]}>
-                Which country would you like to visit?
-            </Text>
+            <Animated.View style={titleStyle}>
+              <Text
+              style={[typography.presets.displaySmall, {color: colors.background, textAlign: 'center'}]}>
+                  Which country would you like to visit?
+              </Text>
+            </Animated.View>
 
-            <TextInput 
-           placeholder="Search for a country"
-           placeholderTextColor={colors.background}
-           style={{ 
-            color: colors.background,
-            fontSize: 16,
-            borderWidth: 2,
-            borderColor: colors.background,
-            width: '100%',
-            padding:16,
-            borderRadius: 8,
-           }}
+            <Animated.View style={[{
+              width: '100%',
+            }, searchStyle]}>
+              <TextInput 
+              placeholder="Search for a country"
+              placeholderTextColor={colors.background}
+              style={{ 
+                color: colors.background,
+                fontSize: 16,
+                borderWidth: 2,
+                borderColor: colors.background,
+                width: '100%',
+                padding:16,
+                borderRadius: 8,
+              }}
 
     />
+            </Animated.View>
             
-            <ScrollView
+            <Animated.ScrollView
         contentContainerStyle={{
           gap: 12,
           alignItems: 'center',
           paddingVertical: 10,
         }}
-        style={{
-          flexDirection: 'column',
-          width: '100%',
-          height: '100%',
-          marginBottom: 100,
-        }}
+        style={scrollViewStyle}
         >
         {
           TOP_TOURIST_COUNTRIES.map((country, index) => (
-            <TouchableOpacity key={index} onPress={() => router.push("/(main)/countryInfo")}>
+            <TouchableOpacity key={index} onPress={() => router.push(`/(main)/countryInfo?id=${country.id}`)}>
               <Animated.View style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -75,19 +122,9 @@ export default function CountryList() {
             </TouchableOpacity>
           ))
         }
-        </ScrollView>
+        </Animated.ScrollView>
         <Animated.View
-                    style={[
-                        {
-                            position: 'absolute',
-                            bottom: 24,
-                            alignSelf: 'center',
-                            width: 325,
-                            height: 52,
-                            backgroundColor: colors.background,
-                            borderRadius: 8,
-                        }
-                    ]}
+                    style={buttonStyle}
                 >
                     <TouchableOpacity
                         onPress={() => router.replace("/(main)/countryMap")}

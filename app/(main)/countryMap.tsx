@@ -1,5 +1,6 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
+
 import { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker, Region } from 'react-native-maps';
@@ -152,6 +153,7 @@ export default function CountryMap() {
                                 coordinate={country.coordinate}
                                 title={country.name}
                                 pinColor={colors.text}
+                                onPress={() => router.push(`/(main)/countryInfo?id=${country.id}`)}
                             />
                         ))}
                     </MapView>

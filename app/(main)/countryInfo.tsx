@@ -1,17 +1,21 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
-import { Animated, Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { Extrapolate, interpolate, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
+import { router, useLocalSearchParams } from "expo-router";
+import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue
+} from "react-native-reanimated";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
+import { CountryData, TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
 
 export default function CountryInfo() {
+    const { id } = useLocalSearchParams();
+    const country: CountryData | undefined = TOP_TOURIST_COUNTRIES.find((country) => country.id === id); 
     const scrollX = useSharedValue(0);
-    const buttonStyle = useAnimatedStyle(() => {
-        return {
-            opacity: scrollX.value > 0 ? 1 : 0,
-        };
-    });
         const items = [
         {
           title: "Corem ipsum dolor ",
@@ -34,7 +38,7 @@ export default function CountryInfo() {
       ]
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, marginTop: 40, alignItems: 'center', justifyContent: 'space-between'}}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, marginTop: 40, alignItems: 'center'}}>
           <MainHeaderwithBack />
           <ScrollView
           style={{
@@ -45,18 +49,17 @@ export default function CountryInfo() {
             paddingHorizontal: 24, 
             paddingVertical: 24,
             alignItems: 'center',
-            gap: 24,
+            gap: 40,
         }}
        
           >
             <Text
             style={[typography.presets.displaySmall, {color: colors.background, textAlign: 'center'}]}>
-                Italy
+                {country?.name}
             </Text>
             <Image
-                        source={{uri: "https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}}
+                        source={{uri: country?.image}}
                         style={{
-                          flex: 1,
                           resizeMode: 'cover',
                           borderRadius: 10,
                           width: '100%',
@@ -65,7 +68,7 @@ export default function CountryInfo() {
                       />
                       <Text
                       style={[typography.presets.bodyLarge, {color: colors.background, textAlign: 'center'}]}>
-                        Italy, a treasure trove of art, history, and culinary delights, captivates visitors with its stunning landscapes from the snow-capped Alps to the sun-kissed Mediterranean coastline. Home to iconic landmarks like the Colosseum, Vatican City, and the canals of Venice, Italy offers an unparalleled blend of ancient wonders and modern sophistication. Renowned for its world-class cuisine, fashion, and passionate culture, visitors can explore charming hillside towns in Tuscany, indulge in authentic pasta and gelato, marvel at Renaissance masterpieces in Florence, or unwind along the dramatic Amalfi Coast. Whether you're an art enthusiast, food lover, or history buff, Italy promises an unforgettable journey through Europe's most enchanting destinations.
+                        {country?.description}
                       </Text>
 
 
@@ -79,45 +82,58 @@ export default function CountryInfo() {
 
 
                       <View
+
+                    style={{
+                      gap: 24,
+                    }}
                       >
                         <Text
             style={[typography.presets.displayXSmall, {color: colors.background, textAlign: 'center'}]}>
-                Attractions
+                Destinations
             </Text>
             <View
             style={{
-              gap: 40,
+              gap: 12,
               flexDirection: 'column',
               alignItems: 'center',
-              height: 800, // Add a fixed height constraint
             }}
             >
-              <ScrollView 
+              <Animated.ScrollView 
                 horizontal
                 style={{
-                  paddingVertical: 20,// Add height constraint to ScrollView
+                  height:'auto',
+                  flexShrink: 1,
+                  flexGrow: 0,
                 }}
                 contentContainerStyle={{
                   paddingHorizontal: 44,
+                  paddingVertical: 20,
                   gap: 20,
+                  alignSelf: 'flex-start',
                 }}
                 scrollEventThrottle={16}
                 showsHorizontalScrollIndicator={false}
+                onScroll={useAnimatedScrollHandler({
+                  onScroll: (event) => {
+                    scrollX.value = event.contentOffset.x;
+                  },
+                })}
               >
-                {items.map((item, index) => (
+                {country?.attractions.slice(0, 3).map((item, index) => (
                     <View key={index} style={{
                       flexDirection: 'column',
                       alignItems: 'center',
                       borderRadius: 10,
-                      height: 600,
                       width: 320,
-                      paddingVertical: 20, // Reduced padding
+                      height: 'auto',
+                      paddingVertical: 20,
                       paddingHorizontal: 20,
-                      gap: 16, // Reduced gap
-                      backgroundColor: item.color === "primary" ? colors.primary : item.color === "secondary" ? colors.secondary : colors.accent,
+                      justifyContent: 'flex-start',
+                      gap: 16,
+                      backgroundColor: colors.secondary
                     }}>
                       <Image
-                        source={item.image}
+                        source={{uri: item.image}}
                         style={{
                           resizeMode: 'cover',
                           borderRadius: 10,
@@ -136,35 +152,45 @@ export default function CountryInfo() {
                             typography.presets.displaySmall,
                             typography.positions.center,
                             {
-                              color:item.color==="primary"?colors.background:colors.text,
+                              color:colors.text,
                             }
                           ]}
-                        >{item.title}</Text>
+                        >{item.name}</Text>
                         <Text
                           style={[
                             typography.presets.bodyLarge,
                             typography.positions.center,
                             {
-                              color:item.color==="primary"?colors.background:colors.text,
+                              color:colors.text,
                             }
                           ]}
-                        >{item.description}</Text>
+                          >{item.description}</Text>
                       </View>
                     </View>
                 ))}
-              </ScrollView>
+              </Animated.ScrollView>
               <View style={{
                 flexDirection: 'row',
                 gap: 8,
+                
               }}>
-                {items.map((item, index) => {
+                {country?.attractions.slice(0, 3).map((_, index) => {
                   const dotStyle = useAnimatedStyle(() => {
+                    // Calculate the center position of each card
+                    const cardWidth = 340; // Total width of card + gap
+                    const cardCenter = index * cardWidth;
+                    
+                    // Calculate how far the current scroll position is from this card's center
+                    const distance = Math.abs(scrollX.value - cardCenter);
+                    
+                    // If we're within half a card width, interpolate to 1, otherwise stay at 0.5
                     const opacity = interpolate(
-                      scrollX.value,
-                      [(index - 1) * 340, index * 340, (index + 1) * 340],
-                      [0.5, 1, 0.5],
+                      distance,
+                      [0, cardWidth / 2],
+                      [1, 0.5],
                       Extrapolate.CLAMP
                     );
+                    
                     return {
                       opacity,
                     };
@@ -186,13 +212,18 @@ export default function CountryInfo() {
                 })}
               </View>
 
-              <Animated.View style={buttonStyle}>
+              
+            </View>
+            
+                      </View>
+
+                      <Animated.View>
                 <TouchableOpacity
                 onPress={() => router.push("/(main)/countryMap")}
                   style={{
                     width: 325,
                     height: 52,
-                    backgroundColor: colors.background,
+                    backgroundColor: colors.accent,
                     borderRadius: 8,
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -200,12 +231,10 @@ export default function CountryInfo() {
                     gap: 8,
                   }}
                 >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
+                  <Text style={[typography.presets.button, {color: colors.text}]}>See all destinations</Text>
                   <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
                 </TouchableOpacity>
               </Animated.View>
-            </View>
-                      </View>
           </ScrollView>
         </SafeAreaView>
 
