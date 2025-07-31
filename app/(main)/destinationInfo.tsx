@@ -1,23 +1,20 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, ScrollView, Text, TouchableOpacity } from "react-native";
 import Animated, {
-  Extrapolate,
-  interpolate,
-  useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withTiming
 } from "react-native-reanimated";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
-import { CountryData, TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
+import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
 
-export default function CountryInfo() {
-    const { id } = useLocalSearchParams();
-    const country: CountryData | undefined = TOP_TOURIST_COUNTRIES.find((country) => country.id === id); 
+export default function DestinationInfo() {
+    const { name } = useLocalSearchParams();
+    const destination = TOP_TOURIST_COUNTRIES.flatMap(country => country.attractions).find(attraction => attraction.name === name);
     const scrollX = useSharedValue(0);
     const headerSlideAnim = useSharedValue(1000);
     const imageSlideAnim = useSharedValue(1000);
@@ -90,13 +87,13 @@ export default function CountryInfo() {
             }, headerAnimatedStyle]}
             >
             <Text
-            style={[typography.presets.displaySmall, {color: colors.background, textAlign: 'center'}]}>
-                {country?.name}
+            style={[typography.presets.displaySmall, {color: colors.background}]}>
+                {destination?.name}
             </Text>
             <MaterialIcons name="favorite-outline" size={24} color={colors.background} />
             </Animated.View>
             <Animated.Image
-                        source={{uri: country?.image}}
+                        source={{uri: destination?.image}}
                         style={[{
                           resizeMode: 'cover',
                           borderRadius: 10,
@@ -106,8 +103,8 @@ export default function CountryInfo() {
                         }, imageAnimatedStyle]}
                       />
                       <Animated.Text
-                      style={[typography.presets.bodyLarge, {color: colors.background}, descriptionAnimatedStyle]}>
-                        {country?.description}
+                      style={[typography.presets.bodyLarge, {color: colors.background, textAlign: 'center'}, descriptionAnimatedStyle]}>
+                        {destination?.longDescription}
                       </Animated.Text>
 
 
@@ -120,14 +117,14 @@ export default function CountryInfo() {
 
 
 
-                      <Animated.View
+                      {/* <Animated.View
                     style={[{
                       gap: 24,
                     }, destinationsAnimatedStyle]}
                       >
                         <Text
             style={[typography.presets.displayXSmall, {color: colors.background, textAlign: 'center'}]}>
-                Destinations
+                Gallery
             </Text>
             <Animated.View
             style={[{
@@ -157,7 +154,7 @@ export default function CountryInfo() {
                   },
                 })}
               >
-                {country?.attractions.slice(0, 3).map((item, index) => (
+                {destination?.attractions.map((item: any, index: any) => (
                     <View key={index} style={{
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -212,7 +209,7 @@ export default function CountryInfo() {
                 gap: 8,
                 
               }}>
-                {country?.attractions.slice(0, 3).map((_, index) => {
+                {destination?.attractions.map((_: any, index: any) => {
                   const dotStyle = useAnimatedStyle(() => {
                     // Calculate the center position of each card
                     const cardWidth = 340; // Total width of card + gap
@@ -253,7 +250,7 @@ export default function CountryInfo() {
               
             </Animated.View>
             
-                      </Animated.View>
+                      </Animated.View> */}
 
                       <Animated.View
                       style={[{
@@ -261,7 +258,7 @@ export default function CountryInfo() {
                       }, attractionsAnimatedStyle]}
                       >
                 <TouchableOpacity
-                onPress={() => router.push(`/(main)/destinationMap?countryId=${id}`)}
+                onPress={() => router.push(`/(main)/countryMap`)}
                   style={{
                     width: 325,
                     height: 52,
@@ -273,7 +270,7 @@ export default function CountryInfo() {
                     gap: 8,
                   }}
                 >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>See all destinations</Text>
+                  <Text style={[typography.presets.button, {color: colors.text}]}>See all countries</Text>
                   <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
                 </TouchableOpacity>
 
@@ -299,4 +296,4 @@ export default function CountryInfo() {
         </SafeAreaView>
 
     )
-}
+}   

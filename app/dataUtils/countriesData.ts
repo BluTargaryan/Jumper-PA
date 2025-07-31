@@ -112,7 +112,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Stunning palace and fortress complex in Granada',
                 longDescription: "The Alhambra is a breathtaking palace-city that showcases the splendor of medieval Islamic architecture. This UNESCO World Heritage site features exquisite arabesque designs, peaceful courtyards with reflecting pools, and the stunning Generalife gardens. Its intricate tilework, carved stucco, and serene water features create an atmosphere of paradise on earth, while offering panoramic views of Granada below.",
-                image: "https://images.unsplash.com/photo-1591292082066-0e0cc6a7f9bd?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1620677368158-32b1293fac36?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Plaza de España',
@@ -122,7 +122,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Grand plaza in Seville with stunning architecture',
                 longDescription: "The Plaza de España in Seville is a stunning example of Spanish Renaissance Revival architecture. Built for the 1929 Ibero-American Exposition, this semi-circular plaza features beautiful tile work representing Spain's provinces, elegant bridges, and a central fountain. The combination of traditional and Art Deco elements creates a uniquely Spanish architectural masterpiece.",
-                image: "https://images.unsplash.com/photo-1555881400-74d7acbe3cf7?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1636060823063-fe90cc147c06?q=80&w=1176&auto=format&fit=crop",
             },
             {
                 name: 'Park Güell',
@@ -132,7 +132,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Whimsical park featuring Gaudí\'s artistic works',
                 longDescription: "Park Güell is a fantastical public park designed by Antoni Gaudí, featuring his signature architectural style. The park's iconic lizard fountain, serpentine bench, and gingerbread-like houses seem to come from a fairy tale. Its hilltop location offers panoramic views of Barcelona while showcasing Gaudí's unique blend of natural and architectural elements.",
-                image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?q=80&w=1052&auto=format&fit=crop",
             },
             {
                 name: 'Royal Palace of Madrid',
@@ -142,7 +142,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Official residence of the Spanish Royal Family',
                 longDescription: "The Royal Palace of Madrid is Europe's largest functioning royal palace. Though no longer the king's residence, this magnificent building showcases Spanish royal history through its grand state rooms, armory, and royal pharmacy. The palace's Baroque architecture, frescoed ceilings, and priceless artworks reflect Spain's imperial past.",
-                image: "https://images.unsplash.com/photo-1573156667506-115190c68737?q=80&w=2075&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1634061799853-fea17398fe24?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -164,7 +164,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic symbol of freedom in New York Harbor',
                 longDescription: "The Statue of Liberty, a gift from France to America, has welcomed countless visitors to New York since 1886. Standing 305 feet tall, this iconic copper statue represents freedom and democracy worldwide. Visitors can explore the museum, climb to the crown for spectacular harbor views, and learn about the millions of immigrants who passed under her gaze seeking a new life in America.",
-                image: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=1199&auto=format&fit=crop",
             },
             {
                 name: 'Grand Canyon',
@@ -184,7 +184,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'First national park with unique geothermal features',
                 longDescription: "Yellowstone, America's first national park, is a wonderland of geothermal features including the Old Faithful geyser. The park showcases dramatic canyons, alpine rivers, lush forests, hot springs, and gushing geysers. Home to hundreds of animal species, it's one of the country's most unique and diverse ecosystems.",
-                image: "https://images.unsplash.com/photo-1576434795764-7e27901b7af2?q=80&w=2076&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1570470276043-874a41ad9b40?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Times Square',
@@ -194,7 +194,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic intersection known as The Crossroads of the World',
                 longDescription: "Times Square, the heart of New York City, dazzles with its massive digital billboards, Broadway theaters, and endless energy. This famous intersection sees over 350,000 pedestrians daily, making it one of the world's busiest pedestrian areas. Its bright lights and vibrant atmosphere have made it a global symbol of entertainment and urban culture.",
-                image: "https://images.unsplash.com/photo-1589194696535-4b8c0b8b0c17?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?q=80&w=1176&auto=format&fit=crop",
             },
             {
                 name: 'Golden Gate Bridge',
@@ -236,7 +236,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic waterways of Venice',
                 longDescription: "Venice's legendary canals form an intricate network of waterways that have served as the city's streets for over a millennium. The Grand Canal, lined with stunning Gothic palaces and churches, is the main thoroughfare of this unique city. Take a gondola ride under the famous Rialto Bridge, explore narrow side canals, and experience the romantic atmosphere of this floating city, especially magical during sunset or carnival season.",
-                image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1663348441696-14bd8a81039f?q=80&w=1171&auto=format&fit=crop",
             },
             {
                 name: 'Vatican Museums & Sistine Chapel',
@@ -246,7 +246,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World-renowned museums with masterpiece collections',
                 longDescription: "The Vatican Museums house one of the world's most extensive art collections, culminating in the Sistine Chapel with Michelangelo's legendary frescoes. Visitors journey through centuries of art, from ancient Roman sculptures to Renaissance masterpieces. The Sistine Chapel's ceiling, featuring the famous Creation of Adam, represents the pinnacle of Renaissance art and human creativity.",
-                image: "https://images.unsplash.com/photo-1560184611-ff3e53f00e8f?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1672950972884-7cf700885593?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Amalfi Coast',
@@ -266,7 +266,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic cathedral with Renaissance dome',
                 longDescription: "Florence's Duomo, officially the Cathedral of Santa Maria del Fiore, is a masterpiece of Italian Gothic architecture crowned by Brunelleschi's revolutionary dome. The cathedral complex includes the Baptistery with its famous bronze doors and Giotto's Bell Tower. Climbing to the dome's top offers panoramic views of Florence and a close-up look at Giorgio Vasari's magnificent Last Judgment fresco.",
-                image: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1687817997684-c9335cce7c5c?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -274,7 +274,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
         id: 'TR',
         name: 'Turkey',
         description: "Turkey bridges East and West with its rich cultural heritage. From Istanbul's magnificent mosques to Cappadocia's otherworldly landscapes, experience ancient history, vibrant bazaars, Turkish hammams, and legendary hospitality.",
-        image: "https://images.unsplash.com/photo-1527838832700-5059252407fa?q=80&w=2069&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1171&auto=format&fit=crop",
         coordinate: {
             latitude: 38.9637,
             longitude: 35.2433,
@@ -288,7 +288,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient Byzantine church turned mosque',
                 longDescription: "The Hagia Sophia is a masterpiece of Byzantine architecture that has stood for nearly 1500 years. Originally built as a Greek Orthodox cathedral, later an Ottoman mosque, and now a mosque again, its massive dome and stunning gold mosaics represent the height of Byzantine artistry. The building's unique blend of Christian and Islamic elements tells the story of Istanbul's rich cultural heritage.",
-                image: "https://images.unsplash.com/photo-1621165398565-4f5d9e65a29b?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1636021597151-cc28dacd915c?q=80&w=1171&auto=format&fit=crop",
             },
             {
                 name: 'Pamukkale',
@@ -298,7 +298,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Natural travertine terraces and thermal pools',
                 longDescription: "Pamukkale, meaning 'Cotton Castle' in Turkish, is a natural wonder of white travertine terraces cascading down the hillside. These mineral-rich thermal waters form stunning terraced pools that have drawn visitors since Roman times. Combined with the ancient ruins of Hierapolis above, visitors can bathe in the thermal pools among Roman columns while enjoying panoramic views of the surrounding landscape.",
-                image: "https://images.unsplash.com/photo-1657697459302-ed19bb4f2eaf?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1720974613069-690834d3d08d?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Cappadocia',
@@ -328,7 +328,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient Greek-Roman city with remarkable ruins',
                 longDescription: "Ephesus represents one of the most complete classical metropolitan areas ever excavated. This ancient city features the impressive Library of Celsus, a 25,000-seat theater, the Temple of Hadrian, and remarkably preserved Roman residential houses. Walking through its marble-paved streets offers an extraordinary glimpse into life in one of the Roman Empire's most important cities.",
-                image: "https://images.unsplash.com/photo-1600626333540-9d9ca0f27ae6?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1682868776143-1f8ad7c0172a?q=80&w=1074&auto=format&fit=crop",
             }
         ]
     },
@@ -350,7 +350,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic snow-capped volcanic peak',
                 longDescription: "Mount Fuji, Japan's highest mountain at 3,776 meters, is a sacred symbol of the nation and a UNESCO World Heritage site. This perfectly symmetrical volcanic cone, snow-capped for much of the year, has inspired artists and poets for centuries. Visitors can climb to the summit in summer, photograph its beauty from the surrounding Five Lakes region, or enjoy its majestic presence from hot spring resorts in the area.",
-                image: "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1705481109538-fb7edf4a5758?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Fushimi Inari Shrine',
@@ -380,7 +380,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Enchanting bamboo forest in Kyoto',
                 longDescription: "The Arashiyama Bamboo Grove is one of Kyoto's most photographed sites, where towering green bamboo stalks create an otherworldly forest path. The play of light through the bamboo canopy and the sound of stalks swaying in the wind create a magical atmosphere. Located near the historic Tenryu-ji Temple, the area also features traditional gardens, temples, and the scenic Katsura River.",
-                image: "https://images.unsplash.com/photo-1607619662634-3ac55ec0e216?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1702384225869-1efa3239b608?q=80&w=1149&auto=format&fit=crop",
             },
             {
                 name: 'Shibuya Crossing',
@@ -390,7 +390,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World\'s busiest pedestrian crossing',
                 longDescription: "Shibuya Crossing, often called 'The Scramble', is the world's busiest pedestrian crossing, where up to 3,000 people cross at once. Surrounded by giant video screens and neon signs, it's a symbol of modern Tokyo's energy and organization. The crossing has become an icon of Japanese urban life, especially stunning at night when the surrounding buildings light up the intersection.",
-                image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1704026438409-b563e1abab55?q=80&w=1142&auto=format&fit=crop",
             }
         ]
     },
@@ -432,7 +432,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic castle and fortress on the Thames',
                 longDescription: "The Tower of London, a UNESCO World Heritage site, has served as a royal palace, prison, fortress, and treasury. Home to the Crown Jewels, including the famous Koh-i-Noor diamond, the Tower has witnessed nearly a millennium of British history. Visitors can explore the White Tower, walk the medieval walls, learn about the legendary ravens, and hear tales of intrigue and execution from the Yeoman Warders.",
-                image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1578666062144-080ac96e3e24?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Edinburgh Castle',
@@ -442,17 +442,17 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic fortress dominating Scotland\'s capital',
                 longDescription: "Edinburgh Castle, perched atop an extinct volcano, dominates Scotland's capital city skyline. This historic fortress houses the Scottish Crown Jewels, the Stone of Destiny, and the National War Museum. The One O'Clock Gun, fired daily except Sundays, continues a tradition dating back to 1861. The castle's Great Hall, Royal Palace, and St. Margaret's Chapel showcase Scotland's rich royal heritage.",
-                image: "https://images.unsplash.com/photo-1580746738099-6c290b13093d?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?q=80&w=1170&auto=format&fit=crop",
             },
             {
-                name: 'Bath Roman Baths',
+                name: 'Roman Baths',
                 coordinate: {
                     latitude: 51.3811,
                     longitude: -2.3590,
                 },
                 description: 'Ancient Roman spa and temple complex',
                 longDescription: "The Roman Baths in Bath represent one of the best-preserved ancient Roman sites in Northern Europe. Built around Britain's only hot spring, these baths were a center for public bathing and socializing in Roman Britain. Visitors can explore the Great Bath, temple ruins, and museum displaying Roman artifacts. The site offers fascinating insights into Roman engineering and daily life, while the Georgian Pump Room above continues the spa town tradition.",
-                image: "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1623438672645-f8bafb8cc2ba?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -474,7 +474,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic performing arts venue and architectural masterpiece',
                 longDescription: "The Sydney Opera House is one of the world's most distinctive architectural masterpieces. Its series of gleaming white shell-shaped roofs set against Sydney Harbour create an unforgettable silhouette. This UNESCO World Heritage site hosts over 1,500 performances annually in its multiple venues. Take a guided tour to discover its fascinating history, enjoy world-class performances, or dine at its waterfront restaurants with spectacular harbour views.",
-                image: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?q=80&w=1132&auto=format&fit=crop",
             },
             {
                 name: 'Great Barrier Reef',
@@ -484,7 +484,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World\'s largest coral reef system',
                 longDescription: "The Great Barrier Reef is the world's largest living structure, visible even from space. This incredible ecosystem stretches over 2,300 kilometers and hosts an extraordinary diversity of marine life, including 1,500 species of tropical fish, 400 types of hard coral, and numerous endangered species. Visitors can snorkel, dive, take glass-bottom boat tours, or scenic flights to experience the reef's stunning beauty and vibrant underwater world.",
-                image: "https://images.unsplash.com/photo-1582067276212-53c6a2449bc2?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1587139223877-04cb899fa3e8?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Uluru',
@@ -494,7 +494,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Sacred monolithic sandstone rock formation',
                 longDescription: "Uluru, also known as Ayers Rock, is a massive sandstone monolith in the heart of the Northern Territory's Red Centre. This sacred site holds deep spiritual significance for the local Anangu people. Rising 348 meters above the surrounding desert plains, its red-ochre color shifts dramatically with changing light throughout the day. Visitors can walk around its base to see ancient rock art, learn about Aboriginal Dreamtime stories, and witness spectacular sunrises and sunsets.",
-                image: "https://images.unsplash.com/photo-1529108190281-9d6ebf35a776?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1557214997-7eae7e0e7aaa?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Bondi Beach',
@@ -504,7 +504,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Famous Sydney beach and coastal culture',
                 longDescription: "Bondi Beach is Australia's most famous beach, embodying the country's coastal lifestyle and surf culture. This one-kilometer stretch of golden sand attracts visitors year-round with its clear waters, consistent waves, and vibrant atmosphere. The beach is perfect for swimming, surfing, or simply soaking up the sun. The surrounding area offers trendy cafes, restaurants, and the scenic Bondi to Bronte coastal walk, showcasing stunning ocean views and occasional whale sightings.",
-                image: "https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1649560982447-bac0cc7e6782?q=80&w=1171&auto=format&fit=crop",
             },
             {
                 name: 'Great Ocean Road',
@@ -514,7 +514,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Scenic coastal drive with dramatic landscapes',
                 longDescription: "The Great Ocean Road is one of the world's most scenic coastal drives, stretching 243 kilometers along Victoria's dramatic southern coast. The journey features the iconic Twelve Apostles limestone stacks, pristine beaches, rainforests, and charming coastal towns. Highlights include watching surfers at Bells Beach, spotting koalas at Kennett River, exploring the Great Otway National Park's waterfalls, and witnessing the limestone cliffs and rock formations that have been shaped by the Southern Ocean.",
-                image: "https://images.unsplash.com/photo-1596395819057-e37f55a8516b?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1511233389693-4a066f739752?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -546,7 +546,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Stunning volcanic island with white-washed buildings',
                 longDescription: "Santorini is a postcard-perfect Greek island formed by one of history's largest volcanic eruptions. Its iconic white-washed buildings cascade down dramatic cliffs, overlooking the deep blue Aegean Sea and caldera. Famous for its stunning sunsets viewed from the village of Oia, the island offers unique black sand beaches, ancient ruins, boutique hotels, world-class wineries, and romantic dining experiences with panoramic views.",
-                image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1138&auto=format&fit=crop",
             },
             {
                 name: 'Meteora',
@@ -556,7 +556,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Monasteries perched on natural rock pillars',
                 longDescription: "Meteora is a breathtaking complex of Eastern Orthodox monasteries built atop towering natural sandstone pillars. These 14th-century monasteries seem to defy gravity, perched hundreds of meters above the ground. Originally accessed only by removable ladders and windlasses, today visitors can climb stone steps to explore six active monasteries, marvel at Byzantine art, and enjoy panoramic views of the Thessalian plain below.",
-                image: "https://images.unsplash.com/photo-1586119732042-ff23ccf4bd23?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1636552085706-b9b7454d87ca?q=80&w=1096&auto=format&fit=crop",
             },
             {
                 name: 'Delphi',
@@ -566,7 +566,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient sanctuary and oracle site',
                 longDescription: "Delphi, considered the 'navel of the world' by ancient Greeks, was the most important religious sanctuary in ancient Greece. Home to the famous Oracle of Delphi, this UNESCO World Heritage site includes the Temple of Apollo, the ancient theater, the stadium, and the Delphi Archaeological Museum. Set against the backdrop of Mount Parnassus, the site offers not only remarkable ruins but also stunning mountain views and a palpable sense of ancient mysticism.",
-                image: "https://images.unsplash.com/photo-1558560522-030f4d11736b?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1648874356135-abaa7feee51f?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Mykonos',
@@ -598,7 +598,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient pyramids and Sphinx at Giza',
                 longDescription: "The Pyramids of Giza are the last surviving wonder of the ancient world. Built over 4,500 years ago as tombs for powerful pharaohs, these massive structures continue to awe visitors with their perfect geometry and mysterious construction methods. The Great Pyramid of Khufu, the largest, was the tallest man-made structure for over 3,800 years. Together with the enigmatic Great Sphinx, they create an unforgettable scene of ancient Egyptian power and engineering brilliance.",
-                image: "https://images.unsplash.com/photo-1590108589108-3600ce4d8d0f?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1663085295900-782a65e0ccdb?q=80&w=1332&auto=format&fit=crop",
             },
             {
                 name: 'Luxor Temple',
@@ -608,7 +608,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient Egyptian temple complex',
                 longDescription: "Luxor Temple, built around 1400 BCE, is a stunning example of ancient Egyptian temple architecture. Unlike other temples, it was dedicated to the rejuvenation of kingship rather than a specific deity. The temple is particularly magical at sunset when its massive columns and statues are illuminated, creating dramatic shadows. Walk through the Avenue of Sphinxes, marvel at the colossal statues of Ramesses II, and discover walls covered in intricate hieroglyphic inscriptions.",
-                image: "https://images.unsplash.com/photo-1539768942893-daf53e448371?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1648139210431-f5a62bc3f126?q=80&w=1065&auto=format&fit=crop",
             },
             {
                 name: 'Valley of the Kings',
@@ -618,7 +618,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient royal burial ground',
                 longDescription: "The Valley of the Kings, a UNESCO World Heritage site, served as the final resting place for pharaohs of Egypt's New Kingdom. This necropolis contains over 60 magnificent tombs, including the famous tomb of Tutankhamun with its legendary treasures. The elaborately decorated burial chambers feature vivid wall paintings and hieroglyphics depicting ancient Egyptian mythology and the pharaohs' journey to the afterlife. Each tomb tells a unique story of Egypt's golden age.",
-                image: "https://images.unsplash.com/photo-1590100742733-fa6fb492b284?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1695178234643-9656316a0e66?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Abu Simbel',
@@ -628,7 +628,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Massive rock temples of Ramesses II',
                 longDescription: "Abu Simbel consists of two massive rock temples built by Pharaoh Ramesses II. The temples were carved out of the mountainside in the 13th century BCE as a monument to himself and his queen Nefertari. The entire complex was relocated in the 1960s to avoid being submerged during the creation of Lake Nasser. The main temple is adorned with four colossal statues of Ramesses II and is perfectly aligned so that twice a year, the sun illuminates the inner sanctuary.",
-                image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1633163893862-4cdc62de7d82?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Egyptian Museum',
@@ -638,7 +638,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World\'s largest collection of ancient Egyptian antiquities',
                 longDescription: "The Egyptian Museum in Cairo houses the world's most extensive collection of ancient Egyptian antiquities. Its most famous exhibits include the golden mask of Tutankhamun and the Royal Mummy Room. The museum displays over 120,000 artifacts, from tiny jewelry pieces to colossal statues, spanning thousands of years of Egyptian history. Highlights include the treasures of Tutankhamun's tomb, ancient papyri, sarcophagi, and a stunning collection of royal mummies.",
-                image: "https://images.unsplash.com/photo-1608500479601-62bdf9231d79?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1641388020166-3a68d31fa6e4?q=80&w=1074&auto=format&fit=crop",
             }
         ]
     },
@@ -660,7 +660,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Former royal residence in Bangkok',
                 longDescription: "Bangkok's Grand Palace has been the official residence of Thai kings since 1782. This spectacular complex showcases Thai architecture at its most magnificent, featuring golden spires, colorful ceramic decorations, and the famous Temple of the Emerald Buddha (Wat Phra Kaew). The intricate details, from mirror-studded walls to guardian statues, demonstrate the height of Thai craftsmanship and spiritual devotion.",
-                image: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1728017237938-8829b36c1850?q=80&w=1331&auto=format&fit=crop",
             },
             {
                 name: 'Phi Phi Islands',
@@ -670,7 +670,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Stunning tropical islands in the Andaman Sea',
                 longDescription: "The Phi Phi Islands are a tropical paradise of crystal-clear waters, limestone cliffs, and white sand beaches. Made famous by the film 'The Beach', Maya Bay on Phi Phi Leh offers spectacular snorkeling and diving opportunities. The larger Phi Phi Don combines natural beauty with vibrant beach life, offering everything from peaceful coves to sunset viewpoints and beachfront dining.",
-                image: "https://images.unsplash.com/photo-1537956965359-7573183d1f57?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1728017237938-8829b36c1850?q=80&w=1331&auto=format&fit=crop",
             },
             {
                 name: 'Wat Arun',
@@ -680,7 +680,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Temple of Dawn on Chao Phraya River',
                 longDescription: "Wat Arun, the Temple of Dawn, is one of Bangkok's most iconic landmarks. This stunning Buddhist temple stands majestically on the west bank of the Chao Phraya River. Its central prang (spire) rises 70 meters high and is beautifully decorated with colorful porcelain and ceramic tiles. The temple is particularly spectacular at sunset when the setting sun creates a magical glow on its surface, or at night when it's illuminated against the dark sky.",
-                image: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1694824995159-2093477bc337?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Ayutthaya Historical Park',
@@ -690,7 +690,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Ancient capital with temple ruins',
                 longDescription: "Ayutthaya Historical Park encompasses the ruins of the ancient city of Ayutthaya, Thailand's capital for 417 years. This UNESCO World Heritage site contains numerous temples, monasteries, and statues, showcasing the grandeur of one of Asia's most prosperous cities of the 14th-18th centuries. Notable sites include the iconic Buddha head entwined in tree roots at Wat Mahathat, the massive reclining Buddha at Wat Lokayasutharam, and the restored chedis of Wat Phra Si Sanphet.",
-                image: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1595612178004-2313f9f2a188?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Chiang Mai Night Bazaar',
@@ -700,7 +700,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Vibrant night market and cultural center',
                 longDescription: "The Chiang Mai Night Bazaar is one of Thailand's largest and most famous markets, stretching along several blocks in the heart of the city. This bustling marketplace comes alive after sunset with hundreds of stalls selling traditional handicrafts, textiles, street food, and modern goods. Visitors can experience authentic Thai culture through traditional performances, sample local delicacies, watch artisans at work, and practice their bargaining skills in this atmospheric setting.",
-                image: "https://images.unsplash.com/photo-1598935898639-81586f7d2129?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1551717309-88444dbe54f5?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -722,7 +722,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Iconic statue overlooking Rio de Janeiro',
                 longDescription: "Christ the Redeemer, or Cristo Redentor, is Brazil's most iconic symbol, standing 98 feet tall atop Corcovado Mountain. This Art Deco masterpiece, completed in 1931, offers breathtaking 360-degree views of Rio de Janeiro, from its famous beaches to its lush mountains. The statue's outstretched arms span 92 feet, symbolically embracing the city below, while the viewing platform provides spectacular photo opportunities of both the statue and Rio's stunning landscape.",
-                image: "https://images.unsplash.com/photo-1594387295585-34ba4c251a95?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1700677866571-43199bcbc593?q=80&w=1330&auto=format&fit=crop",
             },
             {
                 name: 'Iguazu Falls',
@@ -732,7 +732,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Massive waterfall system on Brazil-Argentina border',
                 longDescription: "Iguazu Falls is one of nature's most spectacular sights, comprising 275 individual waterfalls stretching for nearly two miles. The Devil's Throat, the highest and most impressive fall, drops 269 feet into a clouded abyss. Walkways allow visitors to get remarkably close to the thundering waters, while helicopter tours offer breathtaking aerial views. The surrounding rainforest hosts diverse wildlife, including toucans, monkeys, and butterflies.",
-                image: "https://images.unsplash.com/photo-1635297383287-d15f7124b4c1?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1587845858725-81d43f65121b?q=80&w=1169&auto=format&fit=crop",
             },
             {
                 name: 'Copacabana Beach',
@@ -742,7 +742,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Famous beach in Rio de Janeiro',
                 longDescription: "Copacabana Beach is Rio's most famous beach, stretching for 4 kilometers along the city's Atlantic shore. This iconic crescent of golden sand is lined with hotels, restaurants, and bars, and the distinctive black and white wave pattern of its promenade is recognized worldwide. The beach buzzes with activity from dawn to dusk, with locals playing volleyball and football, sunbathers relaxing under colorful umbrellas, and vendors selling everything from coconuts to caipirinhas.",
-                image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1637876308735-74230b34461a?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Amazon Rainforest',
@@ -752,7 +752,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World\'s largest tropical rainforest',
                 longDescription: "The Amazon Rainforest is the world's most biodiverse region, covering over 5.5 million square kilometers of Brazil. This 'lungs of the Earth' houses countless species of flora and fauna, many still undiscovered. Visitors can explore by boat along the Amazon River, stay in eco-lodges, spot exotic wildlife like pink dolphins and macaws, visit indigenous communities, and experience the unparalleled wonder of this vital ecosystem.",
-                image: "https://images.unsplash.com/photo-1516514198142-3c5817e35459?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?q=80&w=1171&auto=format&fit=crop",
             },
             {
                 name: 'Salvador Historic Center',
@@ -762,7 +762,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Colonial old town with vibrant culture',
                 longDescription: "The Pelourinho, Salvador's historic center, is a UNESCO World Heritage site showcasing Brazil's best-preserved colonial architecture. Its cobblestone streets are lined with pastel-colored buildings, baroque churches, and lively squares. This cultural heart of Bahia state pulsates with Afro-Brazilian music and dance, especially during its famous Carnival. Visitors can explore museums, watch capoeira performances, and experience the unique blend of European, African, and indigenous influences that shape Brazilian culture.",
-                image: "https://images.unsplash.com/photo-1620735692151-26a7e0748429?q=80&w=2187&auto=format&fit=crop",
+                image: "https://live.staticflickr.com/4041/4449727633_ccb76e9a95_b.jpg",
             }
         ]
     },
@@ -794,7 +794,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic royal palace complex in the Pink City',
                 longDescription: "The City Palace of Jaipur represents the heart of Rajasthan's 'Pink City'. This vast complex combines Rajasthani and Mughal architecture, featuring elaborate courtyards, gardens, and buildings. Still home to Jaipur's royal family, it houses museums displaying royal artifacts, textiles, and weapons. The stunning Peacock Gate, adorned with intricate patterns, and the seven-story Chandra Mahal showcase the pinnacle of Indian architectural craftsmanship.",
-                image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg",
             },
             {
                 name: 'Varanasi Ghats',
@@ -804,7 +804,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Sacred riverside steps along the Ganges',
                 longDescription: "The Ghats of Varanasi, stretching along the sacred Ganges River, are the spiritual heart of India. These series of 88 steps leading to the water serve as sites for religious ceremonies, yoga, meditation, and daily rituals. The most spectacular time to visit is during the evening Ganga Aarti ceremony at Dashashwamedh Ghat, when priests perform elaborate rituals with fire and incense. The ghats offer a profound glimpse into India's ancient spiritual traditions.",
-                image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1639729098994-60116f7a7c51?q=80&w=1331&auto=format&fit=crop",
             },
             {
                 name: 'Amber Fort',
@@ -814,7 +814,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Majestic hilltop fort-palace near Jaipur',
                 longDescription: "Amber Fort, a UNESCO World Heritage site, is a magnificent fortress-palace complex built from red sandstone and marble. Perched on a hill overlooking Maota Lake, this 16th-century marvel combines Rajput and Mughal architectural styles. The fort's highlights include the stunning Sheesh Mahal (Mirror Palace), where thousands of mirrors create a dazzling effect, the intricate mosaics of the Ganesh Pol, and the beautifully landscaped Char Bagh gardens.",
-                image: "https://images.unsplash.com/photo-1598890777032-bde835ba27c2?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2020/05/27/12/35/amber-fort-5227035_1280.jpg",
             },
             {
                 name: 'Golden Temple',
@@ -824,7 +824,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Sacred Sikh shrine in Amritsar',
                 longDescription: "The Golden Temple, or Harmandir Sahib, is the holiest shrine of Sikhism and a symbol of brotherhood and equality. The temple's upper floors are covered in gold leaf, which reflects beautifully in the surrounding sacred pool. Open to visitors of all faiths, it serves free meals to over 100,000 people daily in its community kitchen. The complex is particularly magical at night when it's illuminated and its golden reflection shimmers in the water.",
-                image: "https://images.unsplash.com/photo-1514222134-b57cbb8ff827?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2014/07/20/16/08/golden-temple-397886_1280.jpg",
             }
         ]
     },
@@ -832,7 +832,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
         id: 'MA',
         name: 'Morocco',
         description: "Morocco enchants with its blend of African and Arab cultures. Lose yourself in ancient medinas, shop colorful souks, trek the Sahara Desert, explore historic kasbahs, and experience traditional Moroccan hospitality in stunning riads.",
-        image: "https://images.unsplash.com/photo-1489749798305-4fea3ae5d38d?q=80&w=2071&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?q=80&w=1170&auto=format&fit=crop",
         coordinate: {
             latitude: 31.7917,
             longitude: -7.0926,
@@ -846,7 +846,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic walled city and cultural heart',
                 longDescription: "The Medina of Fez, the world's largest car-free urban area, is a UNESCO World Heritage site that seems frozen in medieval times. Its 9,000 narrow alleys house bustling souks, ancient madrasas, and the world's oldest university. The famous leather tanneries offer a glimpse into traditional craftsmanship, while the calls to prayer echoing from the Al-Quaraouiyine Mosque create an atmospheric journey through Morocco's spiritual and cultural heritage.",
-                image: "https://images.unsplash.com/photo-1548019979-e49b53bc4432?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2018/04/24/17/57/masjid-nabawi-3347602_1280.jpg",
             },
             {
                 name: 'Jardin Majorelle',
@@ -856,7 +856,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Stunning garden and artist retreat in Marrakech',
                 longDescription: "Jardin Majorelle is a botanical masterpiece in Marrakech, created by French painter Jacques Majorelle and later owned by Yves Saint Laurent. The garden's striking cobalt blue buildings contrast beautifully with exotic plants, including cacti, palms, and bamboo. Water features, winding paths, and the Berber Museum create a peaceful oasis in the bustling city. The garden's unique color palette and architectural details make it one of Morocco's most photographed sites.",
-                image: "https://images.unsplash.com/photo-1560196327-cca0a4485315?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1739686176648-2b53d1bbe87f?q=80&w=1074&auto=format&fit=crop",
             },
             {
                 name: 'Sahara Desert',
@@ -866,7 +866,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Majestic desert landscape with golden dunes',
                 longDescription: "The Sahara Desert offers an unforgettable Moroccan adventure. Merzouga's towering Erg Chebbi dunes create a mesmerizing landscape that changes colors with the sun. Visitors can experience traditional Berber culture, camp under star-filled skies in luxury desert camps, ride camels across the dunes at sunset, and wake to spectacular desert sunrises. The absolute silence and endless horizons of the Sahara provide a profound sense of peace and connection with nature.",
-                image: "https://images.unsplash.com/photo-1489749798305-4fea3ae5d38d?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1489573280374-2e193c63726c?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Djemaa el-Fna',
@@ -876,7 +876,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Vibrant main square in Marrakech',
                 longDescription: "Djemaa el-Fna is the beating heart of Marrakech, a UNESCO-recognized cultural space that transforms from a bustling marketplace by day to a carnival-like atmosphere at night. Snake charmers, storytellers, musicians, and food vendors create an intoxicating sensory experience. As darkness falls, the square fills with aromatic smoke from food stalls, the sound of drums, and the glow of lanterns, offering visitors an authentic taste of Moroccan culture and traditions.",
-                image: "https://images.unsplash.com/photo-1553165558-e89a358bc7b4?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1583856073081-d75a4b9ce95b?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Chefchaouen',
@@ -886,7 +886,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Blue-painted mountain town',
                 longDescription: "Chefchaouen, known as the 'Blue Pearl of Morocco', is famous for its striking blue-washed buildings nestled in the Rif Mountains. This enchanting town's Moroccan and Andalusian influences create a unique atmosphere with its winding medina streets, red-tiled roofs, and colorful markets. The blue walls, originally painted by Jewish refugees in the 1930s, create a dreamlike setting that attracts photographers and artists. The surrounding mountains offer excellent hiking opportunities and spectacular views.",
-                image: "https://images.unsplash.com/photo-1553165558-e89a358bc7b4?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?q=80&w=1170&auto=format&fit=crop",
             }
         ]
     },
@@ -894,7 +894,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
         id: 'PT',
         name: 'Portugal',
         description: "Portugal charms with its medieval towns and sunny coastal beauty. Explore historic Porto's wine cellars, Lisbon's cobblestone streets, stunning Atlantic beaches, charming fishing villages, and savor the melancholic sounds of Fado music.",
-        image: "https://images.unsplash.com/photo-1555881400-74d7acbe3cf7?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1569959220744-ff553533f492?q=80&w=1164&auto=format&fit=crop",
         coordinate: {
             latitude: 39.3999,
             longitude: -8.2245,
@@ -908,7 +908,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Historic fortified tower in Lisbon',
                 longDescription: "The Belém Tower, built in the 16th century, stands as a symbol of Portugal's Age of Discovery. This UNESCO World Heritage site combines Gothic and Manueline architectural styles, featuring intricate maritime motifs and historic armaments. Originally a fortress guarding Lisbon's harbor, it now offers visitors panoramic views of the Tagus River and serves as a reminder of Portugal's maritime glory days.",
-                image: "https://images.unsplash.com/photo-1555881400-74d7acbe3cf7?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1682271630116-2fedc81ad13d?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Porto Historic Center',
@@ -918,7 +918,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'UNESCO World Heritage site with stunning architecture',
                 longDescription: "Porto's historic Ribeira district is a maze of medieval streets and colorful houses cascading down to the Douro River. This UNESCO site features the iconic Dom Luís I Bridge, stunning azulejo-tiled churches, and the ornate São Bento Railway Station. Famous for its port wine cellars, visitors can tour historic lodges, sample fine ports, and enjoy spectacular river views from the Serra do Pilar Monastery.",
-                image: "https://images.unsplash.com/photo-1555953733-c33d6aae7c43?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2020/04/01/12/18/porto-4990983_1280.jpg",
             },
             {
                 name: 'Sintra',
@@ -928,7 +928,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Romantic town with fairytale palaces',
                 longDescription: "Sintra, a UNESCO World Heritage site, is a magical town known for its romantic 19th-century architecture and lush gardens. The colorful Pena Palace, perched atop a hill, is a stunning example of Romantic architecture, while the mysterious Quinta da Regaleira features elaborate Gothic towers and underground tunnels. The historic town center, with its narrow streets and traditional Portuguese houses, offers charming cafes and shops selling local crafts.",
-                image: "https://images.unsplash.com/photo-1559058619-2a1e0ecc4f8a?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1628295928942-c23be3c616f8?q=80&w=1170&auto=format&fit=crop",
             },
             {
                 name: 'Douro Valley',
@@ -938,7 +938,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'World\'s oldest wine region',
                 longDescription: "The Douro Valley, birthplace of Port wine, is the world's oldest demarcated wine region and a UNESCO World Heritage site. Its dramatic landscape of terraced vineyards carved into steep hillsides along the Douro River is a testament to centuries of winemaking tradition. Visitors can tour historic quintas (wine estates), enjoy wine tastings, take scenic river cruises, and experience the autumn grape harvest in this stunning region.",
-                image: "https://images.unsplash.com/photo-1600264302287-86614a70a25b?q=80&w=2187&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1630509802685-d073f8f4e006?q=80&w=1231&auto=format&fit=crop",
             },
             {
                 name: 'Algarve Coast',
@@ -948,7 +948,7 @@ export const TOP_TOURIST_COUNTRIES: CountryData[] = [
                 },
                 description: 'Stunning beaches and dramatic cliffs',
                 longDescription: "The Algarve coastline is renowned for its golden beaches, dramatic limestone cliffs, and crystal-clear waters. The region's most iconic spots include the Benagil Cave, a natural cathedral-like grotto accessible by boat, and Praia da Marinha, with its distinctive rock formations. Historic towns like Lagos and Tavira offer charming old quarters, while the coast provides excellent opportunities for water sports, boat tours, and watching spectacular sunsets.",
-                image: "https://images.unsplash.com/photo-1566726346261-6bea867c3cf3?q=80&w=2187&auto=format&fit=crop",
+                image: "https://cdn.pixabay.com/photo/2018/03/28/18/13/portugal-3270064_1280.jpg",
             }
         ]
     }
