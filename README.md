@@ -1,13 +1,26 @@
 # Jumper-PA 🌍
 
-A travel exploration app built with Expo, featuring interactive maps and tourist destinations around the world.
+A sophisticated travel exploration app built with Expo, featuring interactive maps, detailed country information, and tourist destinations worldwide with smooth animations.
 
 ## Features
 
-- Interactive world map with country markers
-- Famous tourist attractions for each country
-- Smooth navigation between landing and map screens
-- Beautiful UI with animations
+- **Interactive Maps**
+  - World map with country markers
+  - Country-specific maps with attraction points
+  - Automatic map focusing and smooth animations
+  - Interactive markers for tourist attractions
+
+- **Country Exploration**
+  - Detailed country information with images
+  - Famous tourist attractions for each country
+  - Staggered animations for content display
+  - Image galleries and descriptions
+
+- **Navigation & UI**
+  - Smooth transitions between screens
+  - Animated content loading
+  - Back navigation support
+  - Error handling with graceful fallbacks
 
 ## Prerequisites
 
@@ -46,11 +59,24 @@ Before you begin, ensure you have:
 ```
 Jumper-PA/
 ├── app/
-│   ├── (landing)/          # Landing page screens
+│   ├── (landing)/          # Landing and onboarding screens
+│   │   ├── about.tsx       # App introduction
+│   │   ├── index.tsx       # Landing page
+│   │   └── travelInterests.tsx  # User preferences
 │   ├── (main)/            # Main app screens
+│   │   ├── countryInfo.tsx    # Country details with animations
+│   │   ├── countryList.tsx    # List of countries
+│   │   ├── countryMap.tsx     # World map view
+│   │   ├── destinationInfo.tsx # Attraction details
+│   │   ├── destinationList.tsx # List of attractions
+│   │   └── destinationMap.tsx  # Country-specific map
 │   ├── components/        # Reusable components
+│   │   ├── MainHeader.tsx
+│   │   └── MainHeaderwithBack.tsx
 │   ├── dataUtils/         # Data and utilities
+│   │   └── countriesData.ts   # Country and attraction data
 │   └── styleUtils/        # Style configurations
+│       └── styleValues.ts     # Colors and typography
 ├── assets/
 │   ├── fonts/            # Custom fonts
 │   └── images/           # App images
@@ -58,17 +84,21 @@ Jumper-PA/
 
 ## Key Components
 
-- `countryMap.tsx`: Interactive world map with country markers
-- `about.tsx`: Animated landing page with tourist information
-- `countriesData.ts`: Structured data for countries and attractions
+- `countryInfo.tsx`: Detailed country view with staggered animations
+- `destinationMap.tsx`: Interactive map with attraction markers and auto-focusing
+- `countriesData.ts`: Comprehensive data structure for countries and attractions
 
 ## Technologies Used
 
-- Expo Router for navigation
-- React Native Maps for map integration
-- React Native Reanimated for animations
-- TypeScript for type safety
-- Custom styling with React Native StyleSheet
+- **Expo Router** for type-safe navigation
+- **React Native Maps** for interactive maps
+- **React Native Reanimated** for smooth animations
+  - Staggered animations
+  - Slide transitions
+  - Fade effects
+- **TypeScript** for type safety
+- **Custom Components** for consistent UI
+- **Shared Values** for performant animations
 
 ## Development
 
@@ -76,6 +106,7 @@ To start developing:
 1. Run `npx expo start` to start the development server
 2. Use 'a' for Android or 'i' for iOS simulator
 3. Use 'r' to reload the app
+4. Check the terminal for any environment-related warnings
 
 ## Contributing
 
