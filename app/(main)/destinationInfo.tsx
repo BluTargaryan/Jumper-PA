@@ -1,8 +1,11 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
-import { SafeAreaView, ScrollView, Text, TouchableOpacity } from "react-native";
+import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
@@ -84,10 +87,11 @@ export default function DestinationInfo() {
               alignItems: 'center',
               justifyContent: 'space-between',
               width: '100%',
+              gap: 10,
             }, headerAnimatedStyle]}
             >
             <Text
-            style={[typography.presets.displaySmall, {color: colors.background}]}>
+            style={[typography.presets.displaySmall, {color: colors.background, flexShrink: 1}]}>
                 {destination?.name}
             </Text>
             <MaterialIcons name="favorite-outline" size={24} color={colors.background} />
@@ -117,7 +121,7 @@ export default function DestinationInfo() {
 
 
 
-                      {/* <Animated.View
+                      <Animated.View
                     style={[{
                       gap: 24,
                     }, destinationsAnimatedStyle]}
@@ -143,7 +147,7 @@ export default function DestinationInfo() {
                 contentContainerStyle={{
                   paddingHorizontal: 44,
                   paddingVertical: 20,
-                  gap: 20,
+                  gap: 10,
                   alignSelf: 'flex-start',
                 }}
                 scrollEventThrottle={16}
@@ -154,54 +158,44 @@ export default function DestinationInfo() {
                   },
                 })}
               >
-                {destination?.attractions.map((item: any, index: any) => (
-                    <View key={index} style={{
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      borderRadius: 10,
-                      width: 320,
-                      height: 'auto',
-                      paddingVertical: 20,
-                      paddingHorizontal: 20,
-                      justifyContent: 'flex-start',
-                      gap: 16,
-                      backgroundColor: colors.secondary
-                    }}>
-                      <Image
-                        source={{uri: item.image}}
-                        style={{
-                          resizeMode: 'cover',
-                          borderRadius: 10,
-                          width: '100%',
-                          height: 265,
-                        }}
-                      />
-                      <View style={{
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: 10,
-                      }}>
-                        <Text
-                          style={[
-                            typography.presets.displaySmall,
-                            typography.positions.center,
-                            {
-                              color:colors.text,
-                            }
-                          ]}
-                        >{item.name}</Text>
-                        <Text
-                          style={[
-                            typography.presets.bodyLarge,
-                            typography.positions.center,
-                            {
-                              color:colors.text,
-                            }
-                          ]}
-                          >{item.description}</Text>
-                      </View>
-                    </View>
+                {destination?.gallery.map((item: any, index: any) => (
+                    
+                                            <Animated.View
+                        key={index}
+                        style={[
+                          {
+                            width: 345,
+                            height: 245,
+                          },
+                          useAnimatedStyle(() => {
+                            const cardWidth = 355; // 345 (width) + 10 (gap)
+                            const cardPosition = index * cardWidth;
+                            const distance = Math.abs(scrollX.value - cardPosition);
+                            
+                            // Interpolate scale based on distance from center
+                            const scale = interpolate(
+                              distance,
+                              [0, cardWidth / 2],
+                              [1, 0.8],
+                              Extrapolate.CLAMP
+                            );
+                            
+                            return {
+                              transform: [{ scale }]
+                            };
+                          })
+                        ]}>
+                          <Image
+                            source={{uri: item}}
+                            style={{
+                              resizeMode: 'cover',
+                              borderRadius: 10,
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          />
+                        </Animated.View>
+
                 ))}
               </Animated.ScrollView>
               <View style={{
@@ -209,7 +203,7 @@ export default function DestinationInfo() {
                 gap: 8,
                 
               }}>
-                {destination?.attractions.map((_: any, index: any) => {
+                {destination?.gallery.map((_: any, index: any) => {
                   const dotStyle = useAnimatedStyle(() => {
                     // Calculate the center position of each card
                     const cardWidth = 340; // Total width of card + gap
@@ -250,7 +244,7 @@ export default function DestinationInfo() {
               
             </Animated.View>
             
-                      </Animated.View> */}
+                      </Animated.View>
 
                       <Animated.View
                       style={[{

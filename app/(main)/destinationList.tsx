@@ -10,7 +10,6 @@ import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 export default function DestinationList() {
     const { countryId } = useLocalSearchParams();
     const country = TOP_TOURIST_COUNTRIES.find((country) => country.id === countryId);
-    console.log(country);
     const scale = useSharedValue(0);
     const scrollViewTranslateY = useSharedValue(30);
     const scrollViewOpacity = useSharedValue(0);

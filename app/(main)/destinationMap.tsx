@@ -34,6 +34,7 @@ export default function DestinationMap() {
     const [region, setRegion] = useState<Region>(initialRegion);
     const [isMapReady, setIsMapReady] = useState(false);
     const [mapError, setMapError] = useState<string | null>(null);
+    const [selectedAttraction, setSelectedAttraction] = useState<string | null>(null);
 
     const translateY = useSharedValue(50);
     const opacity = useSharedValue(0);
@@ -166,18 +167,47 @@ export default function DestinationMap() {
                         loadingEnabled={true}
                         loadingIndicatorColor={colors.text}
                         loadingBackgroundColor={colors.background}
+                        onPress={() => setSelectedAttraction(null)}
                     >
                         {country?.attractions?.map((attraction) => (
                             <Marker
                                 key={attraction.name}
                                 coordinate={attraction.coordinate}
-                                title={attraction.name}
                                 pinColor={colors.secondary}
-                                onPress={() => router.push(`/(main)/destinationInfo?name=${attraction.name}`)}
-                            />
+                                title={attraction.name}
+                                onPress={() => setSelectedAttraction(attraction.name)}
+                            >
+                            </Marker>
                         ))}
                     </MapView>
                 </Animated.View>
+
+                {selectedAttraction && (
+                    <TouchableOpacity
+                        style={{
+                            position: 'absolute',
+                            width: 325,
+                            bottom: 92,
+                            alignSelf: 'center',
+                            backgroundColor: colors.accent,
+                            paddingHorizontal: 24,
+                            paddingVertical: 12,
+                            borderRadius: 8,
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}
+                        onPress={() => {
+                            router.push(`/(main)/destinationInfo?name=${selectedAttraction}`);
+                            setSelectedAttraction(null);
+                        }}
+                    >
+                        <Text style={[typography.presets.button, { color: colors.text }]}>
+                            See {selectedAttraction}
+                        </Text>
+                        <MaterialIcons name="arrow-forward" size={24} color={colors.text} />
+                    </TouchableOpacity>
+                )}
 
                 <Animated.View
                     style={[
