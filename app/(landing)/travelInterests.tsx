@@ -1,9 +1,10 @@
 import { MaterialIcons, } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, Text, TouchableOpacity } from "react-native";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 import { Checkbox } from "react-native-paper";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, typography } from "../styleUtils/styleValues";
 
 
@@ -57,7 +58,7 @@ export default function TravelInterests() {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 40,
+        paddingHorizontal: 40,
         backgroundColor: colors.text,
     }}>
         <Animated.Image
@@ -116,7 +117,7 @@ export default function TravelInterests() {
          </Animated.View>
         <Animated.View style={buttonStyle}>
           <TouchableOpacity
-                onPress={() => router.push("/")}
+                onPress={() => router.push("/(main)/countryMap")}
                   style={{
                     width: 325,
                     height: 52,

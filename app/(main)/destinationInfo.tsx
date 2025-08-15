@@ -1,7 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -11,12 +11,18 @@ import Animated, {
   withDelay,
   withTiming
 } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
+import FavoriteButton from "../components/FavoriteButton";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
+import { useFavorites } from "../context/FavoritesContext";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
 
 export default function DestinationInfo() {
     const { name } = useLocalSearchParams();
+
+    const { isDestinationFavorited, toggleFavoriteDestination, getFavoritedDestinations } = useFavorites();
+    const country = TOP_TOURIST_COUNTRIES.find(country => country.attractions.some(attraction => attraction.name === name));
     const destination = TOP_TOURIST_COUNTRIES.flatMap(country => country.attractions).find(attraction => attraction.name === name);
     const scrollX = useSharedValue(0);
     const headerSlideAnim = useSharedValue(1000);
@@ -66,7 +72,7 @@ export default function DestinationInfo() {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, marginTop: 40, alignItems: 'center'}}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center'}}>
           <MainHeaderwithBack />
           <ScrollView
           style={{
@@ -94,7 +100,10 @@ export default function DestinationInfo() {
             style={[typography.presets.displaySmall, {color: colors.background, flexShrink: 1}]}>
                 {destination?.name}
             </Text>
-            <MaterialIcons name="favorite-outline" size={24} color={colors.background} />
+            <FavoriteButton
+              initialState={isDestinationFavorited(country?.id ?? '', destination?.name ?? '')}
+              onToggle={() => toggleFavoriteDestination(country?.id ?? '', destination?.name ?? ''  )}
+            />
             </Animated.View>
             <Animated.Image
                         source={{uri: destination?.image}}

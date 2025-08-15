@@ -2,9 +2,10 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ActivityIndicator, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker, Region } from 'react-native-maps';
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
+import { SafeAreaView } from "react-native-safe-area-context";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
@@ -106,7 +107,7 @@ export default function DestinationMap() {
 
     if (mapError) {
         return (
-            <SafeAreaView style={{ flex: 1, marginTop: 40 }}>
+            <SafeAreaView style={{ flex: 1}}>
                 <MainHeaderwithBack />
                 <Animated.View 
                     style={[
@@ -136,7 +137,7 @@ export default function DestinationMap() {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: 40 }}>
+        <SafeAreaView style={{ flex: 1}}>
             <MainHeaderwithBack />
             <View style={{ flex: 1, position: 'relative' }}>
                 {!isMapReady && (

@@ -1,8 +1,9 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router } from 'expo-router';
 import { useEffect } from "react";
-import { ImageBackground, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, typography } from "../styleUtils/styleValues";
 
 export default function LocationPermission() {
@@ -67,7 +68,7 @@ export default function LocationPermission() {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 40,
+            paddingHorizontal: 40,
         }}>
 
 <Animated.Image
@@ -114,7 +115,7 @@ export default function LocationPermission() {
           }}
           >    
             <TouchableOpacity
-            onPress={() => router.push("/travelInterests")} 
+            onPress={() => router.push("/(landing)/travelInterests")} 
             style={{
               flex:1,
               backgroundColor: colors.accent,
@@ -141,6 +142,7 @@ export default function LocationPermission() {
               flexDirection: 'row',
               gap: 8,
             }}
+            onPress={() => router.push("/(landing)/travelInterests")}
             >
                 <Animated.Text style={[typography.presets.button, {color: colors.background}, buttonTextStyle]}>No</Animated.Text>
                 <Animated.View style={iconStyle}>

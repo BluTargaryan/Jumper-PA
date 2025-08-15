@@ -4,8 +4,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { router } from "expo-router";
 import { useEffect } from "react";
-import { SafeAreaView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 
 export default function CountryList() {

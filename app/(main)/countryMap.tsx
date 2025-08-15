@@ -2,7 +2,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import MapView, { Marker, Region } from 'react-native-maps';
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
 import MainHeader from "../components/MainHeader";
@@ -116,7 +118,7 @@ export default function CountryMap() {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: 40 }}>
+        <SafeAreaView style={{ flex: 1}}>
             <MainHeader />
             <View style={{ flex: 1, position: 'relative' }}>
                 {!isMapReady && (

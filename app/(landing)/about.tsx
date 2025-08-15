@@ -210,7 +210,7 @@ export default function About() {
 
               <Animated.View style={buttonStyle}>
                 <TouchableOpacity
-                onPress={() => router.push("/(main)/countryMap")}
+                onPress={() => router.push("/(landing)/locationPermission")}
                   style={{
                     width: 325,
                     height: 52,
