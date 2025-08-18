@@ -2,16 +2,28 @@ import MainHeaderwithBack from "@/app/components/MainHeaderwithBack";
 import { colors, typography } from "@/app/styleUtils/styleValues";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
+import { Attraction, TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 
 export default function DestinationList() {
-    const { countryId } = useLocalSearchParams();
-    const country = TOP_TOURIST_COUNTRIES.find((country) => country.id === countryId);
-    const scale = useSharedValue(0);
+  const [search, setSearch] = useState('');
+  const { countryId } = useLocalSearchParams();
+  const country = TOP_TOURIST_COUNTRIES.find((country) => country.id === countryId);
+  const [filteredAttractions, setFilteredAttractions] = useState<Attraction[]>(country?.attractions || []);
+
+  useEffect(() => {
+    if (!country?.attractions) return;
+    
+    const filtered = country.attractions.filter(attraction =>
+      attraction.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredAttractions(filtered);
+  }, [search, country?.attractions]);
+
+  const scale = useSharedValue(0);
     const scrollViewTranslateY = useSharedValue(30);
     const scrollViewOpacity = useSharedValue(0);
     const buttonTranslateY = useSharedValue(30);
@@ -92,7 +104,8 @@ export default function DestinationList() {
                 padding:16,
                 borderRadius: 8,
               }}
-
+              value={search}
+              onChangeText={setSearch}
     />
             </Animated.View>
             
@@ -105,7 +118,7 @@ export default function DestinationList() {
         style={scrollViewStyle}
         >
         {
-          country?.attractions.map((attraction, index) => (
+          filteredAttractions.map((attraction, index) => (
             <TouchableOpacity key={index} 
             onPress={() => router.push(`/(main)/destinationInfo?name=${attraction.name}`)}
             style={{

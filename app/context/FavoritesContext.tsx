@@ -165,3 +165,5 @@ export function useFavorites() {
   }
   return context;
 }
+
+export default FavoritesContext;

@@ -260,22 +260,7 @@ export default function DestinationInfo() {
                         gap: 16,
                       }, attractionsAnimatedStyle]}
                       >
-                <TouchableOpacity
-                onPress={() => router.push(`/(main)/countryMap`)}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.background,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>See all countries</Text>
-                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-                </TouchableOpacity>
+               
 
                 <TouchableOpacity
                 onPress={() => router.push(`/(main)/countryList`)}
@@ -292,6 +277,22 @@ export default function DestinationInfo() {
                 >
                   <Text style={[typography.presets.button, {color: colors.text}]}>Book trip now</Text>
                   <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => router.back()}
+                  style={{
+                    width: 325,
+                    height: 52,
+                    backgroundColor: colors.primary,
+                    borderRadius: 8,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    gap: 8,
+                  }}
+                >
+                  <Text style={[typography.presets.button, {color: colors.background}]}>Back to destinations</Text>
+                  <MaterialIcons name="arrow-back" size={24} color={colors.background} />              
                 </TouchableOpacity>
               </Animated.View>
               

@@ -3,13 +3,15 @@ import { colors, typography } from "@/app/styleUtils/styleValues";
 import { MaterialIcons } from "@expo/vector-icons";
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { router } from "expo-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 
 export default function CountryList() {
+    const [searchText, setSearchText] = useState("");
+    const [filteredCountries, setFilteredCountries] = useState(TOP_TOURIST_COUNTRIES);
     const scale = useSharedValue(0);
     const scrollViewTranslateY = useSharedValue(30);
     const scrollViewOpacity = useSharedValue(0);
@@ -55,8 +57,15 @@ export default function CountryList() {
         buttonOpacity.value = withDelay(800, withTiming(1, { duration: 200 }));
     }, []);
 
+    useEffect(() => {
+        const filtered = TOP_TOURIST_COUNTRIES.filter(country =>
+            country.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+        setFilteredCountries(filtered);
+    }, [searchText]);
+
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, marginTop: 40, alignItems: 'center', justifyContent: 'space-between'}}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'space-between'}}>
           <MainHeaderwithBack />
           <View
           style={{
@@ -80,19 +89,20 @@ export default function CountryList() {
               width: '100%',
             }, searchStyle]}>
               <TextInput 
-              placeholder="Search for a country"
-              placeholderTextColor={colors.background}
-              style={{ 
-                color: colors.background,
-                fontSize: 16,
-                borderWidth: 2,
-                borderColor: colors.background,
-                width: '100%',
-                padding:16,
-                borderRadius: 8,
-              }}
-
-    />
+                placeholder="Search for a country"
+                placeholderTextColor={colors.background}
+                value={searchText}
+                onChangeText={setSearchText}
+                style={{ 
+                  color: colors.background,
+                  fontSize: 16,
+                  borderWidth: 2,
+                  borderColor: colors.background,
+                  width: '100%',
+                  padding:16,
+                  borderRadius: 8,
+                }}
+              />
             </Animated.View>
             
             <Animated.ScrollView
@@ -104,7 +114,7 @@ export default function CountryList() {
         style={scrollViewStyle}
         >
         {
-          TOP_TOURIST_COUNTRIES.map((country, index) => (
+          filteredCountries.map((country, index) => (
             <TouchableOpacity key={index} onPress={() => router.push(`/(main)/countryInfo?id=${country.id}`)}>
               <Animated.View style={{
                 flexDirection: 'row',

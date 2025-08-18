@@ -12,6 +12,7 @@ import Animated, {
   withTiming
 } from 'react-native-reanimated';
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ABOUT_US } from '../dataUtils/about';
 import { colors, typography } from "../styleUtils/styleValues";
 
 export default function About() {
@@ -58,26 +59,7 @@ export default function About() {
     },
   });
 
-  const items = [
-    {
-      title: "Corem ipsum dolor ",
-      description: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      image: require("../../assets/images/about-phl-image.png"),
-      color:"secondary"
-    },
-    {
-      title: "Corem ipsum dolor ",
-      description: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      image: require("../../assets/images/about-phl-image.png"),
-      color:"primary"
-    },  
-    {
-      title: "Corem ipsum dolor ",
-      description: "Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      image: require("../../assets/images/about-phl-image.png"),
-      color:"accent"
-    }
-  ]
+
   return (
     <Animated.View style={[{ flex: 1 }, bgStyle]}>
       <ImageBackground
@@ -95,7 +77,7 @@ export default function About() {
           
             <ScrollView
             style={{
-              flex: 1,
+              flex: 1
             }}
             contentContainerStyle={{
               gap: 40,
@@ -113,9 +95,7 @@ export default function About() {
               />
               <Animated.ScrollView 
                 horizontal
-                style={[{
-                  height: 590
-                }, listStyle]}
+                  style={[ listStyle]}
                 contentContainerStyle={{
                   paddingHorizontal: 44,
                   gap: 20,
@@ -124,9 +104,8 @@ export default function About() {
                 scrollEventThrottle={16}
                 showsHorizontalScrollIndicator={false}
               >
-                {items.map((item, index) => (
+                {ABOUT_US.map((item, index) => (
                     <View key={index} style={{
-                      flex: 1,
                       flexDirection: 'column',
                       alignItems: 'center',
                       borderRadius: 10,
@@ -137,17 +116,15 @@ export default function About() {
                       backgroundColor: item.color === "primary" ? colors.primary : item.color === "secondary" ? colors.secondary : colors.accent,
                     }}>
                       <Image
-                        source={item.image}
+                        source={{uri: item.image}}
                         style={{
-                          flex: 1,
                           resizeMode: 'cover',
                           borderRadius: 10,
                           width: '100%',
-                          height: '100%',
+                          height: 265,
                         }}
                       />
                       <View style={{
-                        flex: 1,
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -179,7 +156,7 @@ export default function About() {
                 flexDirection: 'row',
                 gap: 8,
               }}>
-                {items.map((item, index) => {
+                {ABOUT_US.map((item, index) => {
                   const dotStyle = useAnimatedStyle(() => {
                     const opacity = interpolate(
                       scrollX.value,

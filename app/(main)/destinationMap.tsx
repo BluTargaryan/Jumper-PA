@@ -235,7 +235,7 @@ export default function DestinationMap() {
                             gap: 8,
                         }}
                     >
-                        <Text style={[typography.presets.button, { color: colors.background }]}>Countries</Text>
+                        <Text style={[typography.presets.button, { color: colors.background }]}>List</Text>
                         <MaterialIcons name="public" size={24} color={colors.background} />
                     </TouchableOpacity>
                 </Animated.View>
