@@ -1,12 +1,15 @@
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router } from 'expo-router';
-import { useEffect } from "react";
-import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useState } from "react";
+import { ImageBackground, Text, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import LocationPermissionButton from '../components/LocationPermissionButton';
+import { useLocation } from '../context/LocationProvider';
 import { colors, typography } from "../styleUtils/styleValues";
 
 export default function LocationPermission() {
+  const { requestLocationPermission, loading, error } = useLocation();
+  const [permissionError, setPermissionError] = useState<string | null>(null);
   const jumperY = useSharedValue(-100); // Start above screen
   const bgScale = useSharedValue(1.5);
   const bgOpacity = useSharedValue(0);
@@ -102,8 +105,13 @@ export default function LocationPermission() {
           >
             <Text style={[typography.presets.displaySmall, {color: colors.text, textAlign: 'center'}]}>Location Permission</Text>
             <Text style={[typography.presets.bodyLarge, {color: colors.text, textAlign: 'center'}]}>
-            Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+              We need your location to provide personalized travel recommendations and help you find nearby attractions. Your location data will only be used to enhance your travel experience.
             </Text>
+            {(error || permissionError) && (
+              <Text style={[typography.presets.bodySmall, {color: colors.accent, textAlign: 'center'}]}>
+                {error || permissionError}
+              </Text>
+            )}
           </View>
 
           <View
@@ -114,41 +122,40 @@ export default function LocationPermission() {
             gap: 20,
           }}
           >    
-            <TouchableOpacity
-            onPress={() => router.push("/(landing)/travelInterests")} 
-            style={{
-              flex:1,
-              backgroundColor: colors.accent,
-              borderRadius: 8,
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'row',
-              gap: 8,
-            }}
-            >
-                <Animated.Text style={[typography.presets.button, {color: colors.text}, buttonTextStyle]}>Yes</Animated.Text>
-                <Animated.View style={iconStyle}>
-                  <MaterialIcons name="thumb-up" size={24} color={colors.text} />
-                </Animated.View>
-            </TouchableOpacity>
+            <LocationPermissionButton
+                onPress={async () => {
+                  try {
+                    const granted = await requestLocationPermission();
+                    if (granted) {
+                      router.push("/(landing)/travelInterests");
+                    } else {
+                      setPermissionError("Location permission is required for better experience");
+                    }
+                  } catch (err) {
+                    setPermissionError("Failed to request location permission");
+                  }
+                }}
+                text="Yes"
+                icon="thumb-up"
+                variant="accent"
+                buttonTextStyle={buttonTextStyle}
+                iconStyle={iconStyle}
+                flex
+                disabled={loading}
+            />
 
-            <TouchableOpacity
-            style={{
-              flex:1,
-              backgroundColor: colors.primary,
-              borderRadius: 8,
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'row',
-              gap: 8,
-            }}
-            onPress={() => router.push("/(landing)/travelInterests")}
-            >
-                <Animated.Text style={[typography.presets.button, {color: colors.background}, buttonTextStyle]}>No</Animated.Text>
-                <Animated.View style={iconStyle}>
-                  <MaterialIcons name="thumb-down" size={24} color={colors.background} />
-                </Animated.View>
-            </TouchableOpacity>
+            <LocationPermissionButton
+                onPress={() => {
+                  router.push("/(landing)/travelInterests");
+                }}
+                text="No"
+                icon="thumb-down"
+                variant="primary"
+                buttonTextStyle={buttonTextStyle}
+                iconStyle={iconStyle}
+                flex
+                disabled={loading}
+            />
           </View>
 
           </Animated.View>

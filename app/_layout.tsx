@@ -3,6 +3,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { LocationProvider } from './context/LocationProvider';
+import { TravelInterestsProvider } from './context/TravelInterestsProvider';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -33,10 +35,14 @@ export default function RootLayout() {
 
   return (
     <FavoritesProvider>
+      <LocationProvider>
+        <TravelInterestsProvider>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(landing)" options={{ headerShown: false }}/>
         <Stack.Screen name="(main)" options={{ headerShown: false }}/>
       </Stack>
+      </TravelInterestsProvider>
+      </LocationProvider>
     </FavoritesProvider>
   );
 }

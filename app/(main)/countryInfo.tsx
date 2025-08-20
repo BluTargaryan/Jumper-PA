@@ -1,7 +1,6 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
-import { useEffect } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useCallback, useEffect, useMemo } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -13,6 +12,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FavoriteButton from "../components/FavoriteButton";
+import { InfoButton } from "../components/InfoButton";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
 import { useFavorites } from "../context/FavoritesContext";
 import { CountryData, TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
@@ -22,6 +22,25 @@ export default function CountryInfo() {
     const { id } = useLocalSearchParams<{ id: string }>();
     const country: CountryData | undefined = TOP_TOURIST_COUNTRIES.find((country) => country.id === id); 
     const { isCountryFavorited, toggleFavoriteCountry, getFavoritedCountries } = useFavorites();
+
+    // Get 3 random attractions, memoized to stay stable during re-renders
+    const randomAttractions = useCallback(() => {
+      if (!country?.attractions) return [];
+      
+      // Create a copy of the array to avoid mutating the original
+      const shuffled = [...country.attractions];
+      let currentIndex = shuffled.length;
+      
+      // Fisher-Yates shuffle algorithm
+      while (currentIndex > 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [shuffled[currentIndex], shuffled[randomIndex]] = 
+        [shuffled[randomIndex], shuffled[currentIndex]];
+      }
+      
+      return shuffled.slice(0, 3);
+    }, [country?.attractions]);
     const scrollX = useSharedValue(0);
     const headerSlideAnim = useSharedValue(1000);
     const imageSlideAnim = useSharedValue(1000);
@@ -70,7 +89,7 @@ export default function CountryInfo() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center'}}>
-          <MainHeaderwithBack />
+          <MainHeaderwithBack title={'Back to countries'} />
           <ScrollView
           style={{
             width: '100%',
@@ -163,7 +182,7 @@ export default function CountryInfo() {
                   },
                 })}
               >
-                {country?.attractions.slice(0, 3).map((item, index) => (
+                {useMemo(() => randomAttractions(), [randomAttractions]).map((item, index) => (
                     <View key={index} style={{
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -218,7 +237,7 @@ export default function CountryInfo() {
                 gap: 8,
                 
               }}>
-                {country?.attractions.slice(0, 3).map((_, index) => {
+                {useMemo(() => randomAttractions(), [randomAttractions]).map((_, index) => {
                   const dotStyle = useAnimatedStyle(() => {
                     // Calculate the center position of each card
                     const cardWidth = 340; // Total width of card + gap
@@ -266,39 +285,19 @@ export default function CountryInfo() {
                         gap: 16,
                       }, attractionsAnimatedStyle]}
                       >
-                <TouchableOpacity
-                onPress={() => router.push(`/(main)/destinationMap?countryId=${id}`)}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.background,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>See all destinations</Text>
-                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-                </TouchableOpacity>
+                <InfoButton
+                  onPress={() => router.push(`/(main)/destinationMap?countryId=${id}`)}
+                  text="See all destinations"
+                  icon="arrow-forward"
+                  variant="background"
+                />
 
-                <TouchableOpacity
-                onPress={() => router.push(`/(main)/countryList`)}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.accent,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>Book trip now</Text>
-                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-                </TouchableOpacity>
+                <InfoButton
+                  onPress={() => router.push(`/(main)/countryList`)}
+                  text="Book trip now"
+                  icon="arrow-forward"
+                  variant="accent"
+                />
               </Animated.View>
               
           </ScrollView>

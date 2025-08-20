@@ -1,7 +1,6 @@
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { Image, ImageBackground, ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from "react-native";
+import { ImageBackground, ScrollView, View, useWindowDimensions } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -12,8 +11,10 @@ import Animated, {
   withTiming
 } from 'react-native-reanimated';
 import { SafeAreaView } from "react-native-safe-area-context";
+import AboutCard from '../components/AboutCard';
+import { ContinueButton } from '../components/ContinueButton';
 import { ABOUT_US } from '../dataUtils/about';
-import { colors, typography } from "../styleUtils/styleValues";
+import { colors } from "../styleUtils/styleValues";
 
 export default function About() {
   const { width } = useWindowDimensions();
@@ -105,51 +106,13 @@ export default function About() {
                 showsHorizontalScrollIndicator={false}
               >
                 {ABOUT_US.map((item, index) => (
-                    <View key={index} style={{
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      borderRadius: 10,
-                      width: 320,
-                      paddingVertical: 40,
-                      paddingHorizontal: 20,
-                      gap: 32,
-                      backgroundColor: item.color === "primary" ? colors.primary : item.color === "secondary" ? colors.secondary : colors.accent,
-                    }}>
-                      <Image
-                        source={{uri: item.image}}
-                        style={{
-                          resizeMode: 'cover',
-                          borderRadius: 10,
-                          width: '100%',
-                          height: 265,
-                        }}
-                      />
-                      <View style={{
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: 10,
-                      }}>
-                        <Text
-                          style={[
-                            typography.presets.displaySmall,
-                            typography.positions.center,
-                            {
-                              color:item.color==="primary"?colors.background:colors.text,
-                            }
-                          ]}
-                        >{item.title}</Text>
-                        <Text
-                          style={[
-                            typography.presets.bodyLarge,
-                            typography.positions.center,
-                            {
-                              color:item.color==="primary"?colors.background:colors.text,
-                            }
-                          ]}
-                        >{item.description}</Text>
-                      </View>
-                    </View>
+                    <AboutCard
+                        key={index}
+                        title={item.title}
+                        description={item.description}
+                        image={item.image}
+                        color={item.color}
+                    />
                 ))}
               </Animated.ScrollView>
               <View style={{
@@ -185,24 +148,14 @@ export default function About() {
                 })}
               </View>
 
-              <Animated.View style={buttonStyle}>
-                <TouchableOpacity
-                onPress={() => router.push("/(landing)/locationPermission")}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.background,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
-                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-                </TouchableOpacity>
-              </Animated.View>
+              <ContinueButton 
+                style={buttonStyle}
+                onPress={() => router.replace("/(landing)/locationPermission")}
+                buttonText="Continue"
+                backgroundColor={colors.background}
+                icon="arrow-forward"
+                iconStyle={{}}
+              />
             </ScrollView>
         </SafeAreaView>
       </ImageBackground>

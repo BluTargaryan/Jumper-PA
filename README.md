@@ -1,154 +1,160 @@
 # Jumper-PA 🌍
 
-A sophisticated travel exploration app built with Expo, featuring interactive maps, detailed country information, tourist destinations worldwide, and personalized favorites with smooth animations.
+A sophisticated travel exploration app built with Expo, featuring interactive maps, detailed country information, tourist destinations worldwide, and personalized travel preferences with smooth animations.
 
 ## Features
 
-- **Interactive Maps**
-  - World map with country markers
-  - Country-specific maps with attraction points
-  - Automatic map focusing and smooth animations
-  - Interactive markers for tourist attractions
+- **User Experience & Navigation**
+  - Animated splash screen with custom fonts
+  - Smooth landing page with spring animations
+  - Animated dropdown navigation menu
+  - Staggered content loading animations
+  - Back navigation with context
+  - Custom headers with dynamic titles
+
+- **Travel Preferences & Personalization**
+  - Travel interests selection
   - Location-based features with permission handling
+  - Persistent storage of preferences
+  - Interest-based recommendations
 
-- **Country & Destination Management**
-  - Detailed country information with images
-  - Famous tourist attractions for each country
+- **Country & Destination Exploration**
+  - Interactive world map with country markers
+  - Country-specific destination maps
+  - Detailed country information pages
+  - Tourist attraction galleries
   - Favorite countries and destinations system
-  - Persistent storage of favorites
-  - Staggered animations for content display
-  - Image galleries and descriptions
+  - Random attraction highlights
 
-- **Navigation & UI**
-  - Smooth transitions between screens
-  - Animated content loading with Reanimated
-  - Back navigation support
-  - Error handling with graceful fallbacks
-  - Custom animated components
-
-- **Data Management**
-  - Context-based state management
-  - AsyncStorage for persistent data
+- **Data & State Management**
+  - Multiple context providers:
+    - FavoritesContext for bookmarking
+    - LocationContext for user location
+    - TravelInterestsContext for preferences
+  - AsyncStorage for data persistence
   - Type-safe data structures
   - Efficient data loading and caching
 
-## Prerequisites
+## Technologies Used
 
-Before you begin, ensure you have:
-- Node.js installed
-- Expo CLI installed (`npm install -g expo-cli`)
-- Google Maps API key for map functionality
-- AsyncStorage capability for data persistence
+- **Core Technologies**
+  - Expo Router for type-safe navigation
+  - React Native Maps for interactive maps
+  - React Native Reanimated 3 for animations
+    - Shared values
+    - Spring animations
+    - Interpolated styles
+    - Staggered animations
+  - TypeScript for type safety
+  - AsyncStorage for persistence
 
-## Setup
-
-1. Clone the repository
-   ```bash
-   git clone <your-repo-url>
-   cd Jumper-PA
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Environment Setup
-   - Create a `.env` file in the root directory
-   - Add your Google Maps API key:
-     ```
-     EXPO_GMAP_API_LOCKE=your_google_maps_api_key
-     ```
-
-4. Start the development server
-   ```bash
-   npx expo start
-   ```
+- **UI Components**
+  - Custom animated buttons
+  - Reusable cards and headers
+  - Dynamic navigation menu
+  - Interactive map markers
+  - Image galleries with pagination
 
 ## Project Structure
 
-```
+\`\`\`
 Jumper-PA/
 ├── app/
-│   ├── (landing)/          # Landing and onboarding screens
+│   ├── (landing)/           # Onboarding flow
+│   │   ├── index.tsx       # Animated landing
 │   │   ├── about.tsx       # App introduction
-│   │   ├── index.tsx       # Landing page
-│   │   └── travelInterests.tsx  # User preferences
-│   ├── (main)/            # Main app screens
-│   │   ├── countryInfo.tsx    # Country details with animations
-│   │   ├── countryList.tsx    # List of countries
-│   │   ├── countryMap.tsx     # World map view
-│   │   ├── destinationInfo.tsx # Attraction details
-│   │   ├── destinationList.tsx # List of attractions
-│   │   └── destinationMap.tsx  # Country-specific map
-│   ├── components/        # Reusable components
+│   │   ├── locationPermission.tsx  # Location setup
+│   │   └── travelInterests.tsx     # Preferences
+│   ├── (main)/             # Main app screens
+│   │   ├── countryMap.tsx      # World map view
+│   │   ├── countryList.tsx     # Countries list
+│   │   ├── countryInfo.tsx     # Country details
+│   │   ├── destinationMap.tsx  # Attractions map
+│   │   ├── destinationList.tsx # Attractions list
+│   │   └── destinationInfo.tsx # Attraction details
+│   ├── components/         # Reusable components
+│   │   ├── AboutCard.tsx
+│   │   ├── ContinueButton.tsx
+│   │   ├── FavoriteButton.tsx
+│   │   ├── InfoButton.tsx
+│   │   ├── LocationPermissionButton.tsx
 │   │   ├── MainHeader.tsx
-│   │   └── MainHeaderwithBack.tsx
-│   ├── context/          # Application context
-│   │   └── FavoritesContext.tsx  # Favorites management
-│   ├── dataUtils/        # Data and utilities
-│   │   └── countriesData.ts   # Country and attraction data
-│   └── styleUtils/       # Style configurations
-│       └── styleValues.ts     # Colors and typography
+│   │   ├── MainHeaderwithBack.tsx
+│   │   └── MapListToggleButton.tsx
+│   ├── context/           # Application state
+│   │   ├── FavoritesContext.tsx
+│   │   ├── LocationProvider.tsx
+│   │   └── TravelInterestsProvider.tsx
+│   ├── dataUtils/         # Data management
+│   │   ├── about.ts
+│   │   ├── attractions.ts
+│   │   └── countriesData.ts
+│   ├── styleUtils/        # Styling
+│   │   └── styleValues.ts
+│   └── types/            # TypeScript types
+│       └── location.ts
 ├── assets/
 │   ├── fonts/           # Custom fonts
-│   └── images/          # App images
-```
+│   └── images/          # App assets
+\`\`\`
 
-## Key Components
+## Key Features in Detail
 
-- `FavoritesContext.tsx`: Global favorites management with persistence
-- `countryInfo.tsx`: Detailed country view with staggered animations
-- `destinationMap.tsx`: Interactive map with attraction markers
-- `countriesData.ts`: Comprehensive data structure for countries and attractions
+### Animation System
+- Spring animations for natural movement
+- Shared values for performance
+- Staggered loading effects
+- Interactive feedback
+- Smooth transitions
 
-## Technologies Used
+### Navigation & Routing
+- Type-safe routing with Expo Router
+- Nested navigation stacks
+- Animated transitions
+- Deep linking support
+- Back navigation handling
 
-- **Expo Router** for type-safe navigation
-- **React Native Maps** for interactive maps
-- **React Native Reanimated** for smooth animations
-  - Staggered animations
-  - Scale transitions
-  - Slide and fade effects
-- **AsyncStorage** for data persistence
-- **Context API** for state management
-- **TypeScript** for type safety
-- **Custom Components** for consistent UI
-- **Shared Values** for performant animations
+### State Management
+- Context-based state management
+- Persistent storage with AsyncStorage
+- Location services integration
+- Travel preferences system
+- Favorites management
 
-## Features in Detail
+### UI/UX Features
+- Custom animated components
+- Interactive maps
+- Image galleries
+- Dynamic loading states
+- Error boundaries and fallbacks
 
-### Favorites System
-- Favorite countries and destinations
-- Persistent storage using AsyncStorage
-- Type-safe context implementation
-- Efficient state management
-- Easy-to-use hooks for accessing favorites
+## Setup & Development
 
-### Animations
-- Staggered content loading
-- Smooth transitions between states
-- Scale animations for interactive elements
-- Performance-optimized using Reanimated
+1. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-### Data Management
-- Type-safe data structures
-- Efficient data loading
-- Persistent storage
-- Error handling and fallbacks
+2. Environment Setup:
+   - Create a \`.env\` file
+   - Add required API keys
 
-## Development
+3. Start development:
+   \`\`\`bash
+   npx expo start
+   \`\`\`
 
-To start developing:
-1. Run `npx expo start` to start the development server
-2. Use 'a' for Android or 'i' for iOS simulator
-3. Use 'r' to reload the app
-4. Check the terminal for any environment-related warnings
+## Prerequisites
+
+- Node.js
+- Expo CLI (\`npm install -g expo-cli\`)
+- Google Maps API key
+- iOS/Android development environment
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

@@ -1,12 +1,12 @@
-import MainHeaderwithBack from "@/app/components/MainHeaderwithBack";
+import MainHeader from "@/app/components/MainHeader";
 import { colors, typography } from "@/app/styleUtils/styleValues";
-import { MaterialIcons } from "@expo/vector-icons";
 import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { MapListToggleButton } from "../components/MapListToggleButton";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 
 export default function CountryList() {
@@ -66,7 +66,7 @@ export default function CountryList() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'space-between'}}>
-          <MainHeaderwithBack />
+          <MainHeader title="Countries" />
           <View
           style={{
             position: 'relative',
@@ -134,24 +134,13 @@ export default function CountryList() {
           ))
         }
         </Animated.ScrollView>
-        <Animated.View
-                    style={buttonStyle}
-                >
-                    <TouchableOpacity
-                        onPress={() => router.replace("/(main)/countryMap")}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'row',
-                            gap: 8,
-                        }}
-                    >
-                        <Text style={[typography.presets.button, { color: colors.text }]}>Map</Text>
-                        <MaterialIcons name="map" size={24} color={colors.text} />
-                    </TouchableOpacity>
-                </Animated.View>
+        <MapListToggleButton
+          style={buttonStyle}
+          onPress={() => router.replace("/(main)/countryMap")}
+          mode="map"
+          textColor={colors.text}
+          backgroundColor={colors.background}
+        />
             </View>
         </SafeAreaView>
     );

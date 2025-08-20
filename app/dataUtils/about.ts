@@ -1,4 +1,12 @@
-export const ABOUT_US = [
+interface AboutItem {
+    id: number;
+    title: string;
+    image: string;
+    description: string;
+    color: "primary" | "secondary" | "accent";
+}
+
+export const ABOUT_US: AboutItem[] = [
     {
         id: 1,
         title: "About Us",

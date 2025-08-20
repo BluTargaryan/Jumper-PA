@@ -1,7 +1,6 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
@@ -13,6 +12,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FavoriteButton from "../components/FavoriteButton";
+import { InfoButton } from "../components/InfoButton";
 import MainHeaderwithBack from "../components/MainHeaderwithBack";
 import { useFavorites } from "../context/FavoritesContext";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
@@ -73,7 +73,7 @@ export default function DestinationInfo() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center'}}>
-          <MainHeaderwithBack />
+          <MainHeaderwithBack title={'Back to destinations'} />
           <ScrollView
           style={{
             width: '100%',
@@ -262,38 +262,19 @@ export default function DestinationInfo() {
                       >
                
 
-                <TouchableOpacity
-                onPress={() => router.push(`/(main)/countryList`)}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.accent,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.text}]}>Book trip now</Text>
-                  <MaterialIcons name="arrow-forward" size={24} color={colors.text} />              
-                </TouchableOpacity>
-                <TouchableOpacity
-                onPress={() => router.back()}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.primary,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text style={[typography.presets.button, {color: colors.background}]}>Back to destinations</Text>
-                  <MaterialIcons name="arrow-back" size={24} color={colors.background} />              
-                </TouchableOpacity>
+                <InfoButton
+                  onPress={() => router.push(`/(main)/countryList`)}
+                  text="Book trip now"
+                  icon="arrow-forward"
+                  variant="accent"
+                />
+                <InfoButton
+                  onPress={() => router.back()}
+                  text="Back to destinations"
+                  icon="arrow-back"
+                  variant="primary"
+                  iconPosition="left"
+                />
               </Animated.View>
               
           </ScrollView>

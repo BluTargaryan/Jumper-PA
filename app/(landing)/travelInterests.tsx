@@ -1,19 +1,22 @@
-import { MaterialIcons, } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { ScrollView, Text, TouchableOpacity } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { Checkbox } from "react-native-paper";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ContinueButton } from "../components/ContinueButton";
+import { useTravelInterests } from "../context/TravelInterestsProvider";
+import { ATTRACTION_TYPES } from "../dataUtils/attractions";
 import { colors, typography } from "../styleUtils/styleValues";
 
-
 export default function TravelInterests() {
+    const { interests, updateInterests, loading: interestsLoading } = useTravelInterests();
 
     const jumperY = useSharedValue(-100); // Start above screen
     const buttonY = useSharedValue(100); // Start below screen
     const contentY = useSharedValue(800); // Start below screen
-    const itemScales = Array.from({length: 8}).map(() => useSharedValue(0));
+    const itemScales = Array.from({length: ATTRACTION_TYPES.length}).map(() => useSharedValue(0));
 
     useEffect(() => {
         // Animate the jumper dropping in
@@ -40,16 +43,23 @@ export default function TravelInterests() {
         transform: [{ translateY: contentY.value }]
     }));
 
-    const getItemStyle = (index: number) => useAnimatedStyle(() => ({
-        transform: [{ scale: itemScales[index].value }]
+    const getItemStyle = (id: string) => useAnimatedStyle(() => ({
+        transform: [{ scale: itemScales[ATTRACTION_TYPES.findIndex(attraction => attraction.id === id)].value }]
     }));
 
-    const [checkedItems, setCheckedItems] = useState(Array(8).fill(false));
+    const [checkedItems, setCheckedItems] = useState(() => {
+      // Initialize with stored interests if available, otherwise all false
+      const initialState = Object.fromEntries(ATTRACTION_TYPES.map(attraction => [
+        attraction.id,
+        interests.selectedInterests.includes(attraction.id)
+      ]));
+      return initialState;
+    });
 
-    const toggleCheckbox = (index: number) => {
+    const toggleCheckbox = (id: string) => {
       setCheckedItems(prev => {
-        const newState = [...prev];
-        newState[index] = !newState[index];
+        const newState = { ...prev };
+        newState[id] = !newState[id];
         return newState;
       });
     };
@@ -91,8 +101,8 @@ export default function TravelInterests() {
         }}
         >
         {
-          Array.from({length: 8}).map((_, index) => (
-            <Animated.View key={index} style={[{
+          ATTRACTION_TYPES.map((attraction, index) => (
+            <Animated.View key={attraction.id} style={[{
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -102,41 +112,44 @@ export default function TravelInterests() {
               height: 52,
               paddingHorizontal: 16,
               paddingVertical: 12,
-            }, getItemStyle(index)]}>
+            }, getItemStyle(attraction.id)]}>
               <Checkbox
-                  status={checkedItems[index] ? 'checked' : 'unchecked'}
-                  onPress={() => toggleCheckbox(index)}
+                  status={checkedItems[attraction.id] ? 'checked' : 'unchecked'}
+                  onPress={() => toggleCheckbox(attraction.id)}
                   color={colors.text}
                 />  
-                <Text style={[typography.presets.headingSmall, {color: colors.text}]}>Adventure</Text>
-                <MaterialIcons name="terrain" size={24} color={colors.text} />
+                <Text style={[typography.presets.headingSmall, {color: colors.text}]}>{attraction.name}</Text>
+                <MaterialIcons name={attraction.icon} size={24} color={colors.text} />
             </Animated.View>
           ))
         }
         </ScrollView>
          </Animated.View>
-        <Animated.View style={buttonStyle}>
-          <TouchableOpacity
-                onPress={() => router.push("/(main)/countryMap")}
-                  style={{
-                    width: 325,
-                    height: 52,
-                    backgroundColor: colors.secondary,
-                    borderRadius: 8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    gap: 8,
-                  }}
-                >
-                  <Text 
-                  style={[typography.presets.button, {color: colors.text}]}>Continue</Text>
-                  <MaterialIcons name="flight" size={24} color={colors.text}
-                  style={{
-                    transform: [{ rotate: '90deg' }]
-                  }}/>              
-                </TouchableOpacity>
-        </Animated.View>
+                  <ContinueButton 
+            style={buttonStyle}
+            onPress={async () => {
+              try {
+                // Get all selected interest IDs
+                const selectedIds = Object.entries(checkedItems)
+                  .filter(([_, isChecked]) => isChecked)
+                  .map(([id]) => id);
+                
+                // Save to storage
+                await updateInterests(selectedIds);
+                
+                // Navigate to next screen
+                router.replace("/(main)/countryMap");
+              } catch (err) {
+                // You might want to show an error message here
+                console.error('Failed to save interests:', err);
+              }
+            }}
+            buttonText="Continue"
+            backgroundColor={colors.secondary}
+            icon="flight"
+            iconStyle={{ transform: [{ rotate: '90deg' }] }}
+            disabled={interestsLoading}
+          />
                 
     </SafeAreaView>
   );

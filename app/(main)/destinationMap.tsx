@@ -1,12 +1,13 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
+import { MapListToggleButton } from "../components/MapListToggleButton";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker, Region } from 'react-native-maps';
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
 import { SafeAreaView } from "react-native-safe-area-context";
-import MainHeaderwithBack from "../components/MainHeaderwithBack";
+import MainHeader from "../components/MainHeader";
 import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors, typography } from "../styleUtils/styleValues";
 
@@ -108,7 +109,7 @@ export default function DestinationMap() {
     if (mapError) {
         return (
             <SafeAreaView style={{ flex: 1}}>
-                <MainHeaderwithBack />
+                <MainHeader title={`Destinations`} />
                 <Animated.View 
                     style={[
                         { 
@@ -138,7 +139,7 @@ export default function DestinationMap() {
 
     return (
         <SafeAreaView style={{ flex: 1}}>
-            <MainHeaderwithBack />
+            <MainHeader title={`Destinations`} />
             <View style={{ flex: 1, position: 'relative' }}>
                 {!isMapReady && (
                     <View style={{ 
@@ -210,35 +211,11 @@ export default function DestinationMap() {
                     </TouchableOpacity>
                 )}
 
-                <Animated.View
-                    style={[
-                        {
-                            position: 'absolute',
-                            bottom: 24,
-                            alignSelf: 'center',
-                            width: 325,
-                            height: 52,
-                            backgroundColor: colors.text,
-                            borderRadius: 8,
-                        },
-                        buttonStyle
-                    ]}
-                >
-                    <TouchableOpacity
-                        onPress={() => router.replace(`/(main)/destinationList?countryId=${countryId}`)}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'row',
-                            gap: 8,
-                        }}
-                    >
-                        <Text style={[typography.presets.button, { color: colors.background }]}>List</Text>
-                        <MaterialIcons name="public" size={24} color={colors.background} />
-                    </TouchableOpacity>
-                </Animated.View>
+                <MapListToggleButton
+                    style={buttonStyle}
+                    onPress={() => router.replace(`/(main)/destinationList?countryId=${countryId}`)}
+                    mode="list"
+                />
             </View>
         </SafeAreaView>
     );

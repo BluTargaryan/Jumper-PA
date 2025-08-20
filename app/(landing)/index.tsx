@@ -31,7 +31,7 @@ export default function Index() {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push("/about");
+      router.replace("/about");
     }, 2000);
   }, []);
 
