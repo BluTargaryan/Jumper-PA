@@ -13,7 +13,7 @@ interface ContinueButtonProps {
   disabled?: boolean;
 }
 
-export const ContinueButton = ({ 
+const ContinueButton = ({ 
   onPress,
   style,
   buttonText,
@@ -42,7 +42,7 @@ export const ContinueButton = ({
 
 const styles = StyleSheet.create({
   button: {
-    width: 325,
+    width: '100%',
     height: 52,
     borderRadius: 8,
     alignItems: 'center',
@@ -51,3 +51,5 @@ const styles = StyleSheet.create({
     gap: 8,
   }
 });
+
+export default ContinueButton;

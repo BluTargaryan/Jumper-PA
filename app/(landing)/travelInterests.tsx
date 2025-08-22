@@ -138,7 +138,7 @@ export default function TravelInterests() {
                 await updateInterests(selectedIds);
                 
                 // Navigate to next screen
-                router.replace("/(main)/countryMap");
+                router.replace("/(main)/home" as any);
               } catch (err) {
                 // You might want to show an error message here
                 console.error('Failed to save interests:', err);

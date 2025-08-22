@@ -49,7 +49,7 @@ export default function DestinationList() {
         position: 'absolute',
         bottom: 24,
         alignSelf: 'center',
-        width: 325,
+        width: '100%',
         height: 52,
         backgroundColor: colors.background,
         borderRadius: 8,

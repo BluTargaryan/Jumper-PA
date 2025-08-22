@@ -26,7 +26,7 @@ export default function MainHeader({title}: {title: string}) {
         {
             name: "Home",
             icon: "home",
-            route: "/(main)/countryMap",
+            route: "/(main)/home",
         },
         {
             name: "Countries",
@@ -96,7 +96,7 @@ export default function MainHeader({title}: {title: string}) {
                             borderBottomColor: colors.text,
                         }}
                         onPress={() => {
-                            router.push(page.route as any);
+                            router.replace(page.route as any);
                             toggleMenu(); // Close menu after navigation
                         }}
                     >
