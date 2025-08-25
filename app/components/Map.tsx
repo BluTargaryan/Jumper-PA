@@ -30,6 +30,7 @@ interface MapProps {
     showLoadingIndicator?: boolean;
     animateOnMount?: boolean;
     markerColor?: string;
+    onPress?: () => void;
 }
 
 export const Map = ({
@@ -41,6 +42,7 @@ export const Map = ({
     showLoadingIndicator = true,
     animateOnMount = true,
     markerColor = colors.text,
+    onPress,
 }: MapProps) => {
     const [region, setRegion] = useState<Region>(initialRegion);
     const [isMapReady, setIsMapReady] = useState(false);
@@ -116,6 +118,7 @@ export const Map = ({
                     initialRegion={initialRegion}
                     onRegionChange={handleRegionChange}
                     onMapReady={handleMapReady}
+                    onPress={onPress}
                     loadingEnabled={true}
                     loadingIndicatorColor={colors.text}
                     loadingBackgroundColor={colors.background}

@@ -1,9 +1,9 @@
+import CountryListItem from "@/app/components/CountryListItem";
 import MainHeader from "@/app/components/MainHeader";
 import { colors, typography } from "@/app/styleUtils/styleValues";
-import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MapListToggleButton } from "../components/MapListToggleButton";
@@ -113,26 +113,15 @@ export default function CountryList() {
         }}
         style={scrollViewStyle}
         >
-        {
-          filteredCountries.map((country, index) => (
-            <TouchableOpacity key={index} onPress={() => router.push(`/(main)/countryInfo?id=${country.id}`)}>
-              <Animated.View style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                backgroundColor: colors.background,
-                borderRadius: 8,
-                width: '100%',
-                height: 52,
-                paddingHorizontal: 16,
-                paddingVertical: 12,
-              }}>
-                <Text style={[typography.presets.headingSmall, {color: colors.text}]}>{country.name}</Text>
-                <Text style={{ fontSize: 24 }}>{getUnicodeFlagIcon(country.id)}</Text>
-              </Animated.View>
-            </TouchableOpacity>
-          ))
-        }
+                 {
+           filteredCountries.map((country, index) => (
+             <CountryListItem
+               key={index}
+               country={country}
+               onPress={() => router.push(`/(main)/countryInfo?id=${country.id}`)}
+             />
+           ))
+         }
         </Animated.ScrollView>
         <MapListToggleButton
           style={buttonStyle}

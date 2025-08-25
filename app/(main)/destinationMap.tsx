@@ -1,5 +1,5 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
+import MapFloatButton from "../components/MapFloatButton";
 import { MapListToggleButton } from "../components/MapListToggleButton";
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -185,30 +185,13 @@ export default function DestinationMap() {
                 </Animated.View>
 
                 {selectedAttraction && (
-                    <TouchableOpacity
-                        style={{
-                            position: 'absolute',
-                            width: 325,
-                            bottom: 92,
-                            alignSelf: 'center',
-                            backgroundColor: colors.accent,
-                            paddingHorizontal: 24,
-                            paddingVertical: 12,
-                            borderRadius: 8,
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            justifyContent: 'space-between'
-                        }}
+                    <MapFloatButton
+                        title={selectedAttraction}
                         onPress={() => {
                             router.push(`/(main)/destinationInfo?name=${selectedAttraction}`);
                             setSelectedAttraction(null);
                         }}
-                    >
-                        <Text style={[typography.presets.button, { color: colors.text }]}>
-                            See {selectedAttraction}
-                        </Text>
-                        <MaterialIcons name="arrow-forward" size={24} color={colors.text} />
-                    </TouchableOpacity>
+                    />
                 )}
 
                 <MapListToggleButton
