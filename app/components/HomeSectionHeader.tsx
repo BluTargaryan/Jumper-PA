@@ -2,7 +2,12 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Text, TouchableOpacity } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
 
-const HomeFavoritesHeader = () => {
+interface HomeSectionHeaderProps {
+    title: string;
+    onPress: () => void;
+}
+
+const HomeSectionHeader = ({ title, onPress }: HomeSectionHeaderProps) => {
     return (
         <TouchableOpacity
         style={{
@@ -14,14 +19,15 @@ const HomeFavoritesHeader = () => {
             flexDirection: 'row',
             gap: 27,
         }}
+        onPress={onPress}
         >
             <Text style={[typography.presets.displaySmall, {
                 color: colors.background,
-            }]}>Your favorites</Text>
+            }]}>{title}</Text>
             <MaterialIcons name="arrow-right-alt" size={30} color={colors.background} 
             />
         </TouchableOpacity>
     )
 }
 
-export default HomeFavoritesHeader;
+    export default HomeSectionHeader;

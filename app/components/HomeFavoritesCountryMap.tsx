@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
-import HomeFavoritesHeader from "./HomeFavoritesHeader";
+import HomeSectionHeader from "./HomeSectionHeader";
 import { Map, MapMarker } from "./Map";
 
 interface HomeFavoritesCountryMapProps {
@@ -24,7 +24,7 @@ const HomeFavoritesCountryMap = ({ markers, onMarkerPress }: HomeFavoritesCountr
         gap: 20,
       }}
     >
-      <HomeFavoritesHeader />
+      <HomeSectionHeader title="Your favorites" onPress={() => {}} />
 
       <View style={{
         width: '100%',

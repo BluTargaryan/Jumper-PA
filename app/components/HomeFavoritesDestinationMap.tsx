@@ -2,7 +2,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
-import HomeFavoritesHeader from "./HomeFavoritesHeader";
+import HomeSectionHeader from "./HomeSectionHeader";
 import { Map, MapMarker } from "./Map";
 import MapFloatButton from "./MapFloatButton";
 
@@ -60,7 +60,7 @@ const HomeFavoritesDestinationMap = ({ destinations, onMarkerPress }: HomeFavori
         gap: 20,
       }}
     >
-      <HomeFavoritesHeader />
+      <HomeSectionHeader title="Your favorites" onPress={() => {}} />
 
       <View style={{
         position: 'relative',
