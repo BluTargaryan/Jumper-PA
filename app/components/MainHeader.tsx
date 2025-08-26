@@ -36,7 +36,7 @@ export default function MainHeader({title}: {title: string}) {
         {
             name: "Favorites",
             icon: "favorite-border",
-            route: "/(main)/countryMap",
+            route: "/(main)/favoritesCountriesMap",
         },
     ];
 

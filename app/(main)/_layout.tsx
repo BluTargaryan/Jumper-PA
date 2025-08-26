@@ -11,6 +11,10 @@ export default function Layout() {
       <Stack.Screen name="destinationList" options={{ headerShown: false }}/>
       <Stack.Screen name="destinationInfo" options={{ headerShown: false }}/>
       <Stack.Screen name="home" options={{ headerShown: false }}/>
+      <Stack.Screen name="favoritesCountriesMap" options={{ headerShown: false }}/>
+      <Stack.Screen name="favoritesCountriesList" options={{ headerShown: false }}/>
+      <Stack.Screen name="favoritesDestinationMap" options={{ headerShown: false }}/>
+      <Stack.Screen name="favoritesDestinationList" options={{ headerShown: false }}/>
     </Stack>
   );
 }

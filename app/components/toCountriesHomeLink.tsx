@@ -18,7 +18,7 @@ const ToCountriesHomeLink = () => {
             padding: 22,
         }}
         onPress={() => {
-            router.push('/(main)/countryMap');
+            router.replace('/(main)/countryMap');
         }}
         >
 

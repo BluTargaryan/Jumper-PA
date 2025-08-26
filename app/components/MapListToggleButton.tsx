@@ -1,5 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { colors, typography } from '../styleUtils/styleValues';
 
@@ -9,10 +9,12 @@ interface MapListToggleButtonProps {
   mode: 'map' | 'list';
   textColor?: string;
   backgroundColor?: string;
+  bottom?: number;
 }
 
 export const MapListToggleButton = ({
   onPress,
+  bottom,
   style,
   mode,
   textColor = colors.background,
@@ -21,14 +23,28 @@ export const MapListToggleButton = ({
   return (
     <Animated.View
       style={[
-        styles.container,
-        { backgroundColor },
+        {
+          position: 'absolute',
+          bottom: bottom || 24,
+          alignSelf: 'center',
+          width: 325,
+          height: 52,
+          borderRadius: 8,
+          backgroundColor,
+        },
         style
       ]}
     >
       <TouchableOpacity
         onPress={onPress}
-        style={styles.button}
+        style={{
+          width: '100%',
+          height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'row',
+          gap: 8,
+        }}
       >
         <Text style={[typography.presets.button, { color: textColor }]}>
           {mode === 'map' ? 'Map' : 'List'}
@@ -42,22 +58,3 @@ export const MapListToggleButton = ({
     </Animated.View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    bottom: 24,
-    alignSelf: 'center',
-    width: 325,
-    height: 52,
-    borderRadius: 8,
-  },
-  button: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 8,
-  }
-});

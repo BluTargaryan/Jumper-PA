@@ -5,7 +5,7 @@ import { ScrollView, Text } from "react-native";
 import { Checkbox } from "react-native-paper";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ContinueButton } from "../components/ContinueButton";
+import ContinueButton from "../components/ContinueButton";
 import { useTravelInterests } from "../context/TravelInterestsProvider";
 import { ATTRACTION_TYPES } from "../dataUtils/attractions";
 import { colors, typography } from "../styleUtils/styleValues";
