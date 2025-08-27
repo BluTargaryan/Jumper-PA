@@ -7,13 +7,13 @@ import { Text, TextInput, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MapListToggleButton } from "../components/MapListToggleButton";
-
 import { useFavorites } from "../context/FavoritesContext";
+import { CountryData } from "../dataUtils/countriesData";
 
 export default function FavoritesCountriesList() {
     const { getFavoritedCountries } = useFavorites();
     const [searchText, setSearchText] = useState("");
-    const [filteredCountries, setFilteredCountries] = useState(getFavoritedCountries());
+    const [filteredCountries, setFilteredCountries] = useState<CountryData[]>([]);
     
     const scale = useSharedValue(0);
     const scrollViewTranslateY = useSharedValue(30);
@@ -70,7 +70,7 @@ export default function FavoritesCountriesList() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'space-between'}}>
-          <MainHeader title="Countries" />
+          <MainHeader title="FaveCountries" />
           <View
           style={{
             position: 'relative',
@@ -128,13 +128,14 @@ export default function FavoritesCountriesList() {
          }
         </Animated.ScrollView>
         
-        <MapListToggleButton
-          style={buttonStyle}
-          onPress={() => router.replace("/(main)/favoritesCountriesMap")}
-          mode="map"
-          textColor={colors.text}
-          backgroundColor={colors.background}
-        />
+        <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 94, zIndex: 1000 }]}>
+          <MapListToggleButton
+            onPress={() => router.replace("/(main)/favoritesCountriesMap")}
+            mode="map"
+            variant="secondary"
+          />
+        </Animated.View>
+
             </View>
         </SafeAreaView>
     );

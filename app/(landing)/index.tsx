@@ -31,7 +31,7 @@ export default function Index() {
 
   useEffect(() => {
     setTimeout(() => {
-      router.replace("/(main)/home");
+      router.replace("/(main)/favoritesCountriesMap");
     }, 2000);
   }, []);
 

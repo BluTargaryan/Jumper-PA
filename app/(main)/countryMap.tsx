@@ -118,11 +118,12 @@ export default function CountryMap() {
                 animateOnMount={true}
             />
             
-            <MapListToggleButton
-                style={buttonStyle}
-                onPress={() => router.replace("/(main)/countryList")}
-                mode="list"
-            />
+            <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+                <MapListToggleButton
+                    onPress={() => router.replace("/(main)/countryList")}
+                    mode="list"
+                />
+            </Animated.View>
         </SafeAreaView>
     );
 }

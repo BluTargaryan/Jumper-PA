@@ -26,7 +26,6 @@ const COUNTRY_VIEW_DELTAS = {
 
 export default function FavoritesDestinationMap() {
     const { getFavoritedDestinations } = useFavorites();
-    const favoritedDestinations = getFavoritedDestinations();
     const initialRegion = DEFAULT_REGION;
     
     const [region, setRegion] = useState<Region>(initialRegion);
@@ -101,7 +100,7 @@ export default function FavoritesDestinationMap() {
     if (mapError) {
         return (
             <SafeAreaView style={{ flex: 1}}>
-                <MainHeader title={`Destinations`} />
+                <MainHeader title={`Fave Destinations`} />
                 <Animated.View 
                     style={[
                         { 
@@ -131,7 +130,7 @@ export default function FavoritesDestinationMap() {
 
     return (
         <SafeAreaView style={{ flex: 1}}>
-            <MainHeader title={`Destinations`} />
+            <MainHeader title={`Fave Destinations`} />
             <View style={{ flex: 1, position: 'relative' }}>
                 {!isMapReady && (
                     <View style={{ 
@@ -163,7 +162,7 @@ export default function FavoritesDestinationMap() {
                         loadingBackgroundColor={colors.background}
                         onPress={() => setSelectedAttraction(null)}
                     >
-                        {favoritedDestinations.map((item) => (
+                        {getFavoritedDestinations().map((item) => (
                             <Marker
                                 key={`${item.country.id}-${item.destination.name}`}
                                 coordinate={item.destination.coordinate}
@@ -187,11 +186,20 @@ export default function FavoritesDestinationMap() {
                     />
                 )}
 
-                <MapListToggleButton
-                    style={buttonStyle}
-                    onPress={() => router.replace("/(main)/destinationList")}
-                    mode="list"
-                />
+                <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 94, alignSelf: 'center' }]}>
+                    <MapListToggleButton
+                        onPress={() => router.replace("/(main)/favoritesDestinationList")}
+                        mode="list"
+                    />
+                </Animated.View>
+
+                <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+                    <MapListToggleButton
+                        onPress={() => router.replace("/(main)/favoritesCountriesMap")}
+                        mode="map"
+                        text="Countries"
+                    />
+                </Animated.View>
             </View>
         </SafeAreaView>
     );

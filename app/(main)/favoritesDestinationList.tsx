@@ -12,17 +12,17 @@ import { Attraction } from "../dataUtils/countriesData";
 export default function FavoritesDestinationList() {
   const [search, setSearch] = useState('');
   const { getFavoritedDestinations } = useFavorites();
-  const favoritedDestinations = getFavoritedDestinations();
-  const [filteredAttractions, setFilteredAttractions] = useState<Attraction[]>(favoritedDestinations.map(item => item.destination) || []);
+  const [filteredAttractions, setFilteredAttractions] = useState<Attraction[]>([]);
 
   useEffect(() => {
+    const favoritedDestinations = getFavoritedDestinations();
     if (!favoritedDestinations) return;
     
     const filtered = favoritedDestinations.filter(item =>
       item.destination.name.toLowerCase().includes(search.toLowerCase())
     ).map(item => item.destination);
     setFilteredAttractions(filtered);
-  }, [search, favoritedDestinations]);
+  }, [search, getFavoritedDestinations]);
 
   const scale = useSharedValue(0);
     const scrollViewTranslateY = useSharedValue(30);
@@ -71,7 +71,7 @@ export default function FavoritesDestinationList() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'space-between'}}>
-          <MainHeader title={`Destinations`} />
+          <MainHeader title={`Fave Destinations`} />
           <View
           style={{
             position: 'relative',
@@ -143,13 +143,13 @@ export default function FavoritesDestinationList() {
           ))
         }
         </Animated.ScrollView>
-        <MapListToggleButton
-          style={buttonStyle}
-          onPress={() => router.replace("/(main)/destinationMap")}
-          mode="map"
-          textColor={colors.text}
-          backgroundColor={colors.background}
-        />
+        <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+          <MapListToggleButton
+            onPress={() => router.replace("/(main)/favoritesDestinationMap")}
+            mode="map"
+            variant="secondary"
+          />
+        </Animated.View>
             </View>
         </SafeAreaView>
     );

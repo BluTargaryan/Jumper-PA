@@ -12,7 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { SafeAreaView } from "react-native-safe-area-context";
 import AboutCard from '../components/AboutCard';
-import { ContinueButton } from '../components/ContinueButton';
+import ContinueButton from '../components/ContinueButton';
 import { ABOUT_US } from '../dataUtils/about';
 import { colors } from "../styleUtils/styleValues";
 

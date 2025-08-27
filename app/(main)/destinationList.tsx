@@ -142,13 +142,13 @@ export default function DestinationList() {
           ))
         }
         </Animated.ScrollView>
-        <MapListToggleButton
-          style={buttonStyle}
-          onPress={() => router.replace(`/(main)/destinationMap?countryId=${countryId}`)}
-          mode="map"
-          textColor={colors.text}
-          backgroundColor={colors.background}
-        />
+        <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+          <MapListToggleButton
+            onPress={() => router.replace(`/(main)/destinationMap?countryId=${countryId}`)}
+            mode="map"
+            variant="secondary"
+          />
+        </Animated.View>
             </View>
         </SafeAreaView>
     );

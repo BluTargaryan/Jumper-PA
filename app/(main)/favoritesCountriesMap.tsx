@@ -79,7 +79,7 @@ export default function FavoritesCountriesMap() {
     if (mapError) {
         return (
             <SafeAreaView style={{ flex: 1, marginTop: 40 }}>
-                <MainHeader title="Favorites Countries" />
+                <MainHeader title="Fave Countries" />
                 <Animated.View 
                     style={[
                         { 
@@ -110,7 +110,7 @@ export default function FavoritesCountriesMap() {
     return (
         <SafeAreaView style={{ flex: 1}}>
             <MainHeader 
-            title="Favorites Countries"
+            title="Fave Countries"
             />
             <Map
                 markers={markers}
@@ -119,12 +119,21 @@ export default function FavoritesCountriesMap() {
                 animateOnMount={true}
             />
             
-            <MapListToggleButton
-                style={buttonStyle}
-                onPress={() => router.replace("/(main)/favoritesCountriesList")}
-                mode="list"
-                bottom={100}
-            />
+            <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 94, alignSelf: 'center' }]}>
+                <MapListToggleButton
+                    onPress={() => router.replace("/(main)/favoritesDestinationMap")}
+                    mode="map"
+                    text="Destinations"
+                />
+            </Animated.View>
+            <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+                <MapListToggleButton
+                    onPress={() => router.replace("/(main)/favoritesCountriesList")}
+                    mode="list"
+                />
+            </Animated.View>
+
+          
         </SafeAreaView>
     );
 }
