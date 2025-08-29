@@ -130,9 +130,6 @@ const HomeFavorites = () => {
                 <Animated.View style={countriesAnimatedStyle}>
                     <HomeFavoritesCountryMap
                         markers={countryMarkers}
-                        onMarkerPress={(countryId) => {
-                            console.log('Favorite country pressed:', countryId);
-                        }}
                     />
                 </Animated.View>
                 <Animated.View style={destinationsAnimatedStyle}>

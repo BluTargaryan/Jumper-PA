@@ -1,16 +1,19 @@
+import { router } from "expo-router";
+import { useState } from "react";
 import { Text, View } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
 import HomeSectionHeader from "./HomeSectionHeader";
 import { Map, MapMarker } from "./Map";
+import MapFloatButton from "./MapFloatButton";
 
 interface HomeFavoritesCountryMapProps {
   markers: MapMarker[];
-  onMarkerPress: (countryId: string) => void;
 }
 
-const HomeFavoritesCountryMap = ({ markers, onMarkerPress }: HomeFavoritesCountryMapProps) => {
+const HomeFavoritesCountryMap = ({ markers }: HomeFavoritesCountryMapProps) => {
   const hasFavorites = markers.length > 0;
-
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedCountryId, setSelectedCountryId] = useState<string | null>(null);
   return (
     <View
       style={{
@@ -37,7 +40,10 @@ const HomeFavoritesCountryMap = ({ markers, onMarkerPress }: HomeFavoritesCountr
         {hasFavorites ? (
           <Map
             markers={markers}
-            onMarkerPress={onMarkerPress}
+            onMarkerPress={(markerId) => {
+              setSelectedCountry(markers.find((marker) => marker.id === markerId)?.name || null);
+              setSelectedCountryId(markerId);
+            }}
             animateOnMount={false}
             showLoadingIndicator={false}
           />
@@ -60,6 +66,17 @@ const HomeFavoritesCountryMap = ({ markers, onMarkerPress }: HomeFavoritesCountr
               No favorite countries yet.{'\n'}Start exploring to add some!
             </Text>
           </View>
+        )}
+
+{selectedCountry && (
+          <MapFloatButton
+            title={selectedCountry}
+            bottom={10}
+            onPress={() => {
+              router.push(`/(main)/countryInfo?id=${selectedCountryId}`);
+              setSelectedCountry(null);
+            }}
+          />
         )}
       </View>
     </View>
