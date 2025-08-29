@@ -31,7 +31,7 @@ export default function Home() {
         }}
 
       >
-      <HomeSearch searchText={searchText} setSearchText={setSearchText}/>
+      <HomeSearch/>
 
       <HomeFavorites />
       <HomeInterests />

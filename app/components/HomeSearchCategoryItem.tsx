@@ -1,11 +1,19 @@
-import { Text, View } from "react-native"
+import { router } from "expo-router"
+import { Text, TouchableOpacity } from "react-native"
 import { colors, typography } from "../styleUtils/styleValues"
 
 
 
-export const HomeSearchCategoryItem = () => {
+export const HomeSearchCategoryItem = ({item, type}: {item: any, type: string}) => {
     return (
-        <View
+        <TouchableOpacity
+        onPress={() => {
+            if (type === 'country') {
+                router.push(`/(main)/countryInfo?id=${item.id}`);
+            } else {
+                router.push(`/(main)/destinationInfo?name=${item.name}`);
+            }
+        }}
         style={[
             {
                 width: '100%',
@@ -25,7 +33,7 @@ export const HomeSearchCategoryItem = () => {
                     color: colors.text,
                 }
             ]}
-            >HomeSearchCategoryItem</Text>
-        </View>
+            >{item.name}</Text>
+        </TouchableOpacity>
     )
 }

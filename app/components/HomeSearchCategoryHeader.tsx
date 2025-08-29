@@ -2,7 +2,7 @@ import { Text, View } from "react-native"
 import { colors, typography } from "../styleUtils/styleValues"
 
 
-export const HomeSearchCategoryHeader = () => {
+export const HomeSearchCategoryHeader = ({title}: {title: string}) => {
     return (
         <View
                     style={{
@@ -24,7 +24,7 @@ export const HomeSearchCategoryHeader = () => {
                                 color: colors.accent,
                             }
                         ]}
-                        >Category</Text>
+                        >{title}</Text>
                     </View>
     )
 }

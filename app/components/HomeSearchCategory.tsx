@@ -3,7 +3,7 @@ import { HomeSearchCategoryHeader } from "./HomeSearchCategoryHeader"
 import { HomeSearchCategoryItem } from "./HomeSearchCategoryItem"
 
 
-export const HomeSearchCategory = () => {
+export const HomeSearchCategory = ({title, items}: {title: string, items: any[]}) => {
     return (
         <View 
                 style={{
@@ -13,11 +13,14 @@ export const HomeSearchCategory = () => {
                 }}>
 
                     <HomeSearchCategoryHeader
+                    title={title}
                     />
 
-                    {Array.from({length: 3}).map((_, index) => (
+                    {items.map((item, index) => (
                         <HomeSearchCategoryItem
                         key={index}
+                        item={item}
+                        type={title === 'Countries' ? 'country' : 'attraction'}
                         />
                     ))}
                 </View>

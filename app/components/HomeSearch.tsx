@@ -1,12 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TextInput } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { TOP_TOURIST_COUNTRIES } from "../dataUtils/countriesData";
 import { colors } from "../styleUtils/styleValues";
 import { HomeSearchCategory } from "./HomeSearchCategory";
 
 
-export const HomeSearch = ({searchText, setSearchText}: {searchText: string, setSearchText: (text: string) => void}) => {
+export const HomeSearch = () => {
     const scrollViewHeight = useSharedValue(0);
+    const [searchText, setSearchText] = useState("");
+
+
+    const countries = useMemo(() => {
+            return TOP_TOURIST_COUNTRIES.filter((country) => country.name.toLowerCase().includes(searchText.toLowerCase()));
+    }, [searchText]);
+
+    const attractions = useMemo(() => {
+        return TOP_TOURIST_COUNTRIES.flatMap((country) => country.attractions).filter((attraction) => attraction.name.toLowerCase().includes(searchText.toLowerCase()));
+    }, [searchText]);
+    
 
     useEffect(() => {
         if (searchText.trim() !== "") {
@@ -58,14 +70,22 @@ export const HomeSearch = ({searchText, setSearchText}: {searchText: string, set
                 gap: 10,
                 flexDirection: 'column',
             }}
-            scrollEnabled={true}
+            nestedScrollEnabled={true}
             >
 
-                {Array.from({length: 8}).map((_, index) => (
+                {countries.length > 0 && (
                     <HomeSearchCategory
-                    key={index}
+                    title="Countries"
+                    items={countries}
                     />
-                ))}
+                )}
+
+                {attractions.length > 0 && (
+                    <HomeSearchCategory
+                    title="Attractions"
+                    items={attractions}
+                    />
+                )}
             </Animated.ScrollView>
           </Animated.View>
     )
