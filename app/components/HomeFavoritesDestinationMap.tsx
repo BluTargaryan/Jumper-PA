@@ -60,7 +60,7 @@ const HomeFavoritesDestinationMap = ({ destinations, onMarkerPress }: HomeFavori
         gap: 20,
       }}
     >
-      <HomeSectionHeader title="Your favorites" onPress={() => {}} />
+      <HomeSectionHeader title="Your favorites" onPress={() => {router.push(`/(main)/favoritesDestinationList`)}} />
 
       <View style={{
         position: 'relative',

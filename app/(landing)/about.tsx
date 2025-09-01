@@ -149,7 +149,11 @@ export default function About() {
               </View>
 
               <ContinueButton 
-                style={buttonStyle}
+                style={[buttonStyle,
+                  {
+                   width: 320,
+                  }
+                ]}
                 onPress={() => router.replace("/(landing)/locationPermission")}
                 buttonText="Continue"
                 backgroundColor={colors.background}

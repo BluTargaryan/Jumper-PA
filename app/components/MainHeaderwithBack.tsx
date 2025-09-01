@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { colors, typography } from "../styleUtils/styleValues";
 
-export default function MainHeaderwithBack({title}: {title: string}) {
+export default function MainHeaderwithBack() {
     return (
         <View style={{
             flexDirection: "row",
@@ -17,7 +17,7 @@ export default function MainHeaderwithBack({title}: {title: string}) {
             <TouchableOpacity onPress={() => router.back()}>
                 <MaterialIcons name="arrow-back" size={24} color={colors.background} />
             </TouchableOpacity>
-            <Text style={[typography.presets.bodyLarge, {color: colors.background}]}>{title}</Text>
+            <Text style={[typography.presets.bodyLarge, {color: colors.background}]}>Go back</Text>
            
         </View>
     )

@@ -15,6 +15,8 @@ export default function Layout() {
       <Stack.Screen name="favoritesCountriesList" options={{ headerShown: false }}/>
       <Stack.Screen name="favoritesDestinationMap" options={{ headerShown: false }}/>
       <Stack.Screen name="favoritesDestinationList" options={{ headerShown: false }}/>
+      <Stack.Screen name="bookTrip" options={{ headerShown: false }}/>
+      <Stack.Screen name="interests" options={{ headerShown: false }}/>
     </Stack>
   );
 }

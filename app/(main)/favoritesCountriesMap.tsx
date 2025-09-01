@@ -120,16 +120,17 @@ export default function FavoritesCountriesMap() {
             />
             
             <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 94, alignSelf: 'center' }]}>
-                <MapListToggleButton
-                    onPress={() => router.replace("/(main)/favoritesDestinationMap")}
-                    mode="map"
-                    text="Destinations"
-                />
-            </Animated.View>
-            <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+                
                 <MapListToggleButton
                     onPress={() => router.replace("/(main)/favoritesCountriesList")}
                     mode="list"
+                />
+            </Animated.View>
+            <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>
+            <MapListToggleButton
+                    onPress={() => router.replace("/(main)/favoritesDestinationMap")}
+                    mode="map"
+                    text="Destinations"
                 />
             </Animated.View>
 

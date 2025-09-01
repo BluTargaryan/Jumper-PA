@@ -73,7 +73,7 @@ export default function DestinationInfo() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center'}}>
-          <MainHeaderwithBack title={'Back to destinations'} />
+            <MainHeaderwithBack />
           <ScrollView
           style={{
             width: '100%',
@@ -263,14 +263,14 @@ export default function DestinationInfo() {
                
 
                 <InfoButton
-                  onPress={() => router.push(`/(main)/countryList`)}
+                  onPress={() => router.push(`/(main)/bookTrip?countryId=${country?.id}`)}
                   text="Book trip now"
                   icon="arrow-forward"
                   variant="accent"
                 />
                 <InfoButton
                   onPress={() => router.back()}
-                  text="Back to destinations"
+                  text="Go back"
                   icon="arrow-back"
                   variant="primary"
                   iconPosition="left"

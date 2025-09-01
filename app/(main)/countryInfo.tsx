@@ -89,7 +89,7 @@ export default function CountryInfo() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center'}}>
-          <MainHeaderwithBack title={'Back to countries'} />
+            <MainHeaderwithBack />
           <ScrollView
           style={{
             width: '100%',
@@ -293,7 +293,7 @@ export default function CountryInfo() {
                 />
 
                 <InfoButton
-                  onPress={() => router.push(`/(main)/countryList`)}
+                  onPress={() => router.push(`/(main)/bookTrip?countryId=${id}`)}
                   text="Book trip now"
                   icon="arrow-forward"
                   variant="accent"

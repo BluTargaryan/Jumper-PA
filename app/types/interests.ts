@@ -11,3 +11,5 @@ export interface TravelInterestsContextType {
   updateInterests: (selectedIds: string[]) => Promise<void>;
   clearInterests: () => Promise<void>;
 }
+
+export default TravelInterests;

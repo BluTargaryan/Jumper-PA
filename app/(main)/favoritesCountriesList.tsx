@@ -70,7 +70,7 @@ export default function FavoritesCountriesList() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.text, alignItems: 'center', justifyContent: 'space-between'}}>
-          <MainHeader title="FaveCountries" />
+          <MainHeader title="Fave Countries" />
           <View
           style={{
             position: 'relative',

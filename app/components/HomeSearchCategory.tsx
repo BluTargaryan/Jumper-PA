@@ -3,7 +3,8 @@ import { HomeSearchCategoryHeader } from "./HomeSearchCategoryHeader"
 import { HomeSearchCategoryItem } from "./HomeSearchCategoryItem"
 
 
-export const HomeSearchCategory = ({title, items}: {title: string, items: any[]}) => {
+export const HomeSearchCategory = ({
+    title, items}: {title: string, items: any[]}) => {
     return (
         <View 
                 style={{

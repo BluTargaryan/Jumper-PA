@@ -90,3 +90,5 @@ export const HomeSearch = () => {
           </Animated.View>
     )
 }
+
+export default HomeSearch;

@@ -191,6 +191,7 @@ export default function FavoritesDestinationMap() {
                         onPress={() => router.replace("/(main)/favoritesDestinationList")}
                         mode="list"
                     />
+                    
                 </Animated.View>
 
                 <Animated.View style={[buttonStyle, { position: 'absolute', bottom: 34, alignSelf: 'center' }]}>

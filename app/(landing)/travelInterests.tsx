@@ -126,7 +126,11 @@ export default function TravelInterests() {
         </ScrollView>
          </Animated.View>
                   <ContinueButton 
-            style={buttonStyle}
+            style={[buttonStyle,
+              {
+                width: 320,
+              }
+            ]}
             onPress={async () => {
               try {
                 // Get all selected interest IDs

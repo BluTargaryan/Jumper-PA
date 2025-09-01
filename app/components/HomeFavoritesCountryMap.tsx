@@ -27,7 +27,7 @@ const HomeFavoritesCountryMap = ({ markers }: HomeFavoritesCountryMapProps) => {
         gap: 20,
       }}
     >
-      <HomeSectionHeader title="Your favorites" onPress={() => {}} />
+      <HomeSectionHeader title="Your favorites" onPress={() => {router.push(`/(main)/favoritesCountriesList`)}} />
 
       <View style={{
         width: '100%',

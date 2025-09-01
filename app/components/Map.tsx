@@ -137,3 +137,5 @@ export const Map = ({
         </View>
     );
 };
+
+export default Map;
